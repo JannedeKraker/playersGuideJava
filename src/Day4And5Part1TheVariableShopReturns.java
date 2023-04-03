@@ -3,7 +3,7 @@ Build a program with a variable of all eight primitive Java types (as well as th
 Assign each of them a value using a literal of the correct type.
 Use System.out.println to display the contents of each variable.
  */
-public class Day4And5Part1 {
+public class Day4And5Part1TheVariableShopReturns {
     public static void main(String[] args) {
         byte byte8Bit1 = 100;
         byte byte8Bit2 = 'A';

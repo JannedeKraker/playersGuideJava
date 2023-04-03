@@ -7,7 +7,7 @@ Answer this question: What are three total egg counts where the duckbear gets mo
 You can use the program you created to help you find the answer. answer: 1, 2 amd 3 eggs.
 4 sisters
  */
-public class Day6 {
+public class Day6TheFourSistersAndTheDuckbear {
     public static void main(String[] args) {
 
         int howManyEggs;

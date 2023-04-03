@@ -25,7 +25,7 @@ Display the deployment instructions in a different color of your choosing.
 Change the window title to be “Defense of Consolas”.
 Play a sound with Toolkit.getDefaultToolkit().beep(); when the results have been computed and displayed.
  */
-public class Day8 {
+public class Day8TheDefenseOfConsolas {
     public static void main(String[] args) {
        String ANSI_RESET = "\u001B[0m";
        String ANSI_RED = "\u001B[31m";

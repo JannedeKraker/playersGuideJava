@@ -10,7 +10,7 @@ import java.util.Scanner;
 // Positive x-values are east, positive y-values are north (as they would be on a normal graph)
 // Using if statements and relational operators, display a message about what direction the enemy
 // is coming from. For example, “The enemy is to the northwest!” or “The enemy is here!
-public class Day10 {
+public class Day10Watchtower {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Where is the enemy? Can you give me the x value? ");

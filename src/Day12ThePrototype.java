@@ -35,9 +35,12 @@ import java.util.Scanner;
 
 public class Day12ThePrototype {
     public static void main(String[] args) {
-        Scanner inputKeyboard = new Scanner(System.in);
-        System.out.println("Hello Pilot, what is the number the hunter has to guess? (between 0 and 100)");
-        int number = inputKeyboard.nextInt();
+//        Instead of this code I used a method from Day16
+
+//        Scanner inputKeyboard = new Scanner(System.in);
+//        System.out.println("Hello Pilot, what is the number the hunter has to guess? (between 0 and 100)");
+//        int number = inputKeyboard.nextInt();
+        int number = Day16TakingANumber.askForNumberInRange("Hello Pilot, what is the number the hunter has to guess?",0,100);
         emptyScreen();
         goodNumber(number);
     }

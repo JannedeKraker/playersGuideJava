@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+
+
+
 /*
 Create a program that lets the user enter the number of chocolate eggs gathered that day.
 Using / and %, compute how many eggs each sister should get and how many are left over for the duckbear.
@@ -10,11 +13,15 @@ You can use the program you created to help you find the answer. answer: 1, 2 am
 public class Day6TheFourSistersAndTheDuckbear {
     public static void main(String[] args) {
 
-        int howManyEggs;
-        Scanner input = new Scanner(System.in);
 
-        System.out.println("How many chocolate eggs are there today? ");
-        howManyEggs = input.nextInt();
+//        instead of this code I used a method from Day16
+
+//        int howManyEggs;
+//        Scanner input = new Scanner(System.in);
+//        System.out.println("How many chocolate eggs are there today? ");
+//        howManyEggs = input.nextInt();
+
+        int howManyEggs = Day16TakingANumber.askForNumber("How many chocolate eggs are there today? ");
 
         int eachSisterGet = howManyEggs / 4;
         int duckBearget = howManyEggs % 4;

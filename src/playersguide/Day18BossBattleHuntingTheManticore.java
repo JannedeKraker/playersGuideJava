@@ -1,3 +1,7 @@
+package playersguide;
+import static playersguide.Day12ThePrototype.*;
+import static playersguide.Day16TakingANumber.*;
+
 //The Uncoded One’s airship, the Manticore, has begun an all-out attack on the
 //city of Consolas. It must be destroyed, or the city will fall. Only by combining
 //Mylara’s prototype, Skorin’s cannon, and your programming skills will you have
@@ -97,27 +101,26 @@
 //}
 //}
 
-import java.util.Scanner;
+
+
 
 public class Day18BossBattleHuntingTheManticore {
     public static void main(String[] args) {
         int manticoreHealth = 10;
         int cityHealth = 15;
-        int manticoreDistance = Day16TakingANumber.askForNumberInRange("Player 1 choose the Manticore’s distance from the city: ",0,100);
-        Day12ThePrototype.emptyScreen();
+        int manticoreDistance = askForNumberInRange("Player 1, choose the Manticore’s distance from the city: ",0,100);
+        emptyScreen();
+        beginMenu();
     }
 
-    public static roundMenu(){
-        Scanner keyboard = new Scanner(System.in);
-        int shot= keyboard.nextInt();
+    public static void beginMenu(){
+
         System.out.println("-----------------------------------------------------------");
         System.out.println("| STATUS:                                                 |");
-        System.out.println("| Round: 2 | City: 14/15 | Manticore: 10/10               |");
+        System.out.println("| Round: 1 | City: 15/15 | Manticore: 10/10               |");
         System.out.println("| The cannon is expected to deal 1 damage this round.     |");
-        System.out.println("| Enter desired cannon range: " + shot + "                        |");
-        System.out.println("| That round FELL SHORT of the target.                    |");
         System.out.println("-----------------------------------------------------------");
-//
+
 //
     }
 }

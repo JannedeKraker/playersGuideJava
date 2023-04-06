@@ -1,3 +1,5 @@
+package playersguide;
+
 //Hint: try read a bit about ‘recursion’
 //        The Council of Freach has summoned you. New writing has appeared on the
 //        Tomb of Algol the Wise, the last True Programmer to wander this land. The

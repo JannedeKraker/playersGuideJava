@@ -1,4 +1,4 @@
-// Mylara, the captain of the Guard of Consolas,
+package playersguide;// Mylara, the captain of the Guard of Consolas,
 // has approached you with the beginnings of a plan to hunt down The Uncoded One’s airship.
 // “If we’re going to be able to track this thing down,” she says,
 // “we need you to make us a program that can help us home in on a location.”

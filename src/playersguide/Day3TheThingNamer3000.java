@@ -1,3 +1,5 @@
+package playersguide;
+
 import java.util.Scanner;
 public class Day3TheThingNamer3000 {
     public static void main(String[] args) {

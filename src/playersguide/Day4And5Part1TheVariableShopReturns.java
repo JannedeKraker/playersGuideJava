@@ -1,3 +1,5 @@
+package playersguide;
+
 /*
 Build a program with a variable of all eight primitive Java types (as well as the 'text' type).
 Assign each of them a value using a literal of the correct type.

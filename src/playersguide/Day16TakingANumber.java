@@ -1,4 +1,4 @@
-
+package playersguide;
 // Many previous tasks have required getting a number from a user. To save time
 //writing this code repeatedly, you have decided to make a method to do this
 //common task.

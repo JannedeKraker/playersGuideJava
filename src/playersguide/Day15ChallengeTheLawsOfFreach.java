@@ -1,3 +1,5 @@
+package playersguide;
+
 //The town of Freach recently had an awful looping disaster. The lead investigator
 //found that it was a faulty ++ operator in an old for loop, but the town council
 //has chosen to ban all loops but the foreach loop. Yet Freach uses the code

@@ -1,4 +1,4 @@
-package playersguide;// While searching an abandoned storage building containing strange code artifacts,
+package playersguide.Day14;// While searching an abandoned storage building containing strange code artifacts,
 // you uncover the ancient Replicator of D’To.
 // This can replicate the contents of any int array into another array.
 // But it appears broken and needs a Programmer to reforge the magic

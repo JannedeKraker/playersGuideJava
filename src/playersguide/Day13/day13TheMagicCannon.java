@@ -1,4 +1,4 @@
-package playersguide;
+package playersguide.Day13;
 
 //Skorin, a member of Consolas’s wall guard,
 // has constructed a magic cannon that draws power from two gems:

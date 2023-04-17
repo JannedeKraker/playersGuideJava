@@ -1,4 +1,5 @@
 package playersguide.Day20;
+import static playersguide.Day20.ComposedSoup.*;
 //Simula is impressed with how you reconstructed the box with an enumeration.
 //        When the box opened, you saw a glowing emerald gem inside. You don’t know
 //        what it is, but it seems important. Also in the box were three vials of powder
@@ -47,12 +48,11 @@ package playersguide.Day20;
 //        Class!
 
 public class Day20ChallengeSimulasSoup {
+    public static void main(String[] args) {
+        ComposedSoup();
 
-
-
-
-        
     }
+}
 
 
 

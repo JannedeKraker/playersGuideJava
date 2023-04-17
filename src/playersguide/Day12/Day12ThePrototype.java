@@ -1,4 +1,4 @@
-package playersguide;// Mylara, the captain of the Guard of Consolas,
+package playersguide.Day12;// Mylara, the captain of the Guard of Consolas,
 // has approached you with the beginnings of a plan to hunt down The Uncoded One’s airship.
 // “If we’re going to be able to track this thing down,” she says,
 // “we need you to make us a program that can help us home in on a location.”
@@ -30,6 +30,8 @@ package playersguide;// Mylara, the captain of the Guard of Consolas,
 //        Ask a second user, the hunter,to guess numbers.
 //        Indicate whether the user guessed too high, too low, or guessed right.
 //        Loop until they get it right, then end the program.
+
+import playersguide.Day16.Day16TakingANumber;
 
 import java.util.Scanner;
 
@@ -77,7 +79,7 @@ public class Day12ThePrototype {
         System.out.println("Yes! You have catch the Pilot! We are saved!!");
     }
 
-    static void emptyScreen(){
+    public static void emptyScreen(){
         System.out.println(" ");
         System.out.println(" ");
         System.out.println(" ");

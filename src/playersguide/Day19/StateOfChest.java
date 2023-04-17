@@ -1,4 +1,4 @@
-package playersguide;
+package playersguide.Day19;
 
 public enum StateOfChest {
     OPEN,

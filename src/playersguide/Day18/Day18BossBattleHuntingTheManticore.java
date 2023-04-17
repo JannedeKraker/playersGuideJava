@@ -1,7 +1,7 @@
-package playersguide;
+package playersguide.Day18;
 import java.util.Scanner;
-import static playersguide.Day12ThePrototype.*;
-import static playersguide.Day16TakingANumber.*;
+import static playersguide.Day12.Day12ThePrototype.*;
+import static playersguide.Day16.Day16TakingANumber.*;
 
 //The Uncoded One’s airship, the Manticore, has begun an all-out attack on the
 //city of Consolas. It must be destroyed, or the city will fall. Only by combining

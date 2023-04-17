@@ -1,4 +1,4 @@
-package playersguide;
+package playersguide.Day17;
 
 //Hint: try read a bit about ‘recursion’
 //        The Council of Freach has summoned you. New writing has appeared on the

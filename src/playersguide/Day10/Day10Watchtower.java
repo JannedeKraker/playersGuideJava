@@ -1,4 +1,4 @@
-package playersguide;
+package playersguide.Day10;
 
 import java.util.Scanner;
 

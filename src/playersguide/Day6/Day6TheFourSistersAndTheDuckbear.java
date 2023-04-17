@@ -1,5 +1,7 @@
-package playersguide;
+package playersguide.Day6;
 
+
+import playersguide.Day16TakingANumber;
 
 /*
 Create a program that lets the user enter the number of chocolate eggs gathered that day.

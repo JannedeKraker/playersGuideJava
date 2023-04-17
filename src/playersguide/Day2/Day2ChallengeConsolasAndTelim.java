@@ -1,4 +1,4 @@
-package playersguide;
+package playersguide.Day2;
 
 import java.util.Scanner;
 public class Day2ChallengeConsolasAndTelim {

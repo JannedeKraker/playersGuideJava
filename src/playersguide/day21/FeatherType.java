@@ -1,9 +1,13 @@
 package playersguide.day21;
 
 public enum FeatherType {
-    PLASTIC_FEATHER(10),
-    TURKEY_FEATHER(5),
-    GOOSE_FEATHER(3);
+    PLASTIC(10),
+    TURKEY(5),
+    GOOSE(3);
+
+    public int getCost() {
+        return cost;
+    }
 
     private final int cost;
 

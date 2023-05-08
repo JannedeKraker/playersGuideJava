@@ -7,7 +7,7 @@ import static playersguide.day21.ArrowHeadType.*;
 public class Arrow {
     ArrowHeadType arrowHeadType;
     FeatherType featherType;
-    int arrowLength; // length between 60 and 100 cm long
+   private float arrowLength; // length between 60 and 100 cm long
     public ArrowHeadType getArrowHeadType() {
         return arrowHeadType;
     }
@@ -24,7 +24,7 @@ public class Arrow {
         this.featherType = featherType;
     }
 
-    public int getArrowLength() {
+    public float getArrowLength() {
         return arrowLength;
     }
 

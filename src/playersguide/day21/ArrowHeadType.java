@@ -4,7 +4,7 @@ import java.util.Locale;
 
 public enum ArrowHeadType {
     STEEL(10f),
-    WOOD(3f),
+   WOOD(3f),
     OBSIDIAN(5f);
 
     private final float cost;

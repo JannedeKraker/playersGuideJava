@@ -1,17 +1,17 @@
 package playersguide.day21;
 
 public enum FeatherType {
-    PLASTIC(10),
-    TURKEY(5),
-    GOOSE(3);
+    PLASTIC(10f),
+    TURKEY(5f),
+    GOOSE(3f);
 
     public float getCost() {
         return cost;
     }
 
-    private final int cost;
+    private final float cost;
 
-    FeatherType(int cost) {
+    FeatherType(float cost) {
         this.cost = cost;
     }
 }

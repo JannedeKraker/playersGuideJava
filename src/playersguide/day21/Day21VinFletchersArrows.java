@@ -35,6 +35,6 @@ public class Day21VinFletchersArrows {
         System.out.println("What type should the feather of the arrow made of? You can choose between: plastic, goose and turkey");
         newArrow.setFeatherType(FeatherType.valueOf(inputKeyboard.next().toUpperCase(Locale.ROOT)));
 
-        getCost();
+        System.out.println("the costs of the arrow are: " + newArrow.getCost(newArrow) + " gold");
     }
 }

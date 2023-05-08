@@ -5,7 +5,7 @@ public enum FeatherType {
     TURKEY(5),
     GOOSE(3);
 
-    public int getCost() {
+    public float getCost() {
         return cost;
     }
 

@@ -2,6 +2,8 @@ package playersguide.day21;
 
 import java.util.Scanner;
 
+import static playersguide.day21.ArrowHeadType.*;
+
 public class Arrow {
     ArrowHeadType arrowHeadType;
     FeatherType featherType;
@@ -26,8 +28,11 @@ public class Arrow {
         return arrowLength;
     }
 
-    public int getCost(Arrow newArrow){
-        newArrow.
+    public float getCost(Arrow newArrow){
+        float costPerLength = 0.05F;
+        float arrowLengthCosts = newArrow.getArrowLength() * costPerLength;
+
+        return arrowLengthCosts + arrowHeadType.getCost() + featherType.getCost();
     }
 
     public void setArrowLength(int arrowLength) {

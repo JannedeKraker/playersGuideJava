@@ -1,6 +1,4 @@
-package playersguide.day21;
-
-import java.util.Locale;
+package playersguide.day21en22;
 
 public enum ArrowHeadType {
     STEEL(10f),

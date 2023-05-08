@@ -1,4 +1,4 @@
-package playersguide.day21;
+package playersguide.day21en22;
 
 public enum FeatherType {
     PLASTIC(10f),

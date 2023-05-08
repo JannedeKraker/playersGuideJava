@@ -1,4 +1,4 @@
-package playersguide.day21;
+package playersguide.day21en22;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -34,10 +34,30 @@ import java.util.Scanner;
 //Objectives:
 //• Modify your Arrow class to have private instead of public fields.
 //• Add in getter methods for each of the fields that you have.
+//
+// Day 22 Challenge: Arrow Factories 100 XP
+//Vin Fletcher sometimes makes custom-ordered arrows, but these are rare. Most
+//of the time, he sells one of the following standard arrows: - The Elite Arrow,
+//made from a steel arrowhead, plastic fletching, and a 95 cm shaft. - The Beginner
+//Arrow, made from a wood arrowhead, goose feathers, and a 75 cm shaft. - The
+//Marksman Arrow, made from a steel arrowhead, goose feathers, and a 65 cm
+//shaft. You can make static methods to make these specific variations of arrows
+//easy.
+//Objectives:
+//• Modify your Arrow class one final time to include static methods of the
+//form public static Arrow createEliteArrow() { ... } for each of the three
+//above arrow types.
+//• Modify the program to allow users to choose one of these pre-defined types
+//or a custom arrow. If they select one of the predefined styles, produce an
+//Arrow instance using one of the new static methods. If they select one
+//of the predefined styles, produce an Arrow instance using one of the new
+//static methods. If they choose to make a custom arrow, use your earlier
+//code to get their custom data about the desired arrow
 public class Day21VinFletchersArrows {
     public static void main(String[] args) {
         Scanner inputKeyboard = new Scanner(System.in);
         Arrow newArrow = new Arrow();
+        Arrow eliteArrow= new Arrow();
 
         System.out.println("How long do you want the shaft to be, it must be between 60 - 100 cm ");
         newArrow.setArrowLength(inputKeyboard.nextInt());
@@ -49,5 +69,10 @@ public class Day21VinFletchersArrows {
         newArrow.setFeatherType(FeatherType.valueOf(inputKeyboard.next().toUpperCase(Locale.ROOT)));
 
         System.out.println("the costs of the arrow are: " + newArrow.getCost(newArrow) + " gold");
+
+        System.out.println("the elite arrow");
+        eliteArrow.createEliteArrow();
+        System.out.println("He cost " + eliteArrow.getCost(eliteArrow) + " gold." );
+
     }
 }

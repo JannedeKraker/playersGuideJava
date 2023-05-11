@@ -1,0 +1,15 @@
+@startuml
+
+class Arrow{
+- arrowHead
++ getCost()
+- int length;
+}
+
+
+@enduml
+
+@startuml
+actor Janne
+
+@enduml

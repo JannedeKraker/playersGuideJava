@@ -1,5 +1,6 @@
 package playersguide.day21en22;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -55,7 +56,7 @@ public class Arrow {
         eliteArrow.setArrowHeadType(arrowHeadType);
         eliteArrow.setArrowLength(lengthArrow);
         eliteArrow.setFeatherType(featherType);
-       System.out.println("The arrow head is from: " + eliteArrow.getArrowHeadType()+ "\n"+ "The length of the shaft is: " + eliteArrow.getArrowLength()+" cm \n"+ "The feather is from: " + eliteArrow.getFeatherType());
+       System.out.println("the arrow cost: " + eliteArrow.getCost(eliteArrow) + " gold.");
    }
 
     public void createBeginnerArrow() {
@@ -68,7 +69,7 @@ public class Arrow {
         beginnerArrow.setArrowHeadType(arrowHeadType);
         beginnerArrow.setArrowLength(lengthArrow);
         beginnerArrow.setFeatherType(featherType);
-        System.out.println("The arrow head is from: " + beginnerArrow.getArrowHeadType()+ "\n"+ "The length of the shaft is: " + beginnerArrow.getArrowLength()+" cm \n"+ "The feather is from: " + beginnerArrow.getFeatherType());
+        System.out.println("the arrow cost: " + beginnerArrow.getCost(beginnerArrow) + " gold.");
     }
 
     public void createMarksmanArrow() {
@@ -81,6 +82,22 @@ public class Arrow {
         marksmanArrow.setArrowHeadType(arrowHeadType);
         marksmanArrow.setArrowLength(lengthArrow);
         marksmanArrow.setFeatherType(featherType);
-        System.out.println("The arrow head is from: " + marksmanArrow.getArrowHeadType()+ "\n"+ "The length of the shaft is: " + marksmanArrow.getArrowLength()+" cm \n"+ "The feather is from: " + marksmanArrow.getFeatherType());
+        System.out.println("the arrow cost: " + marksmanArrow.getCost(marksmanArrow) + " gold.");
+    }
+
+    public void customMadeArrow(){
+        Scanner inputKeyboard = new Scanner(System.in);
+        Arrow newArrow = new Arrow();
+
+        System.out.println("How long do you want the shaft to be, it must be between 60 - 100 cm ");
+        newArrow.setArrowLength(inputKeyboard.nextInt());
+
+        System.out.println("What material should the tip of the arrow be made of? You can choose between: steel, wood and obsidian");
+        newArrow.setArrowHeadType(ArrowHeadType.valueOf(inputKeyboard.next().toUpperCase(Locale.ROOT)));
+
+        System.out.println("What type should the feather of the arrow made of? You can choose between: plastic, goose and turkey");
+        newArrow.setFeatherType(FeatherType.valueOf(inputKeyboard.next().toUpperCase(Locale.ROOT)));
+
+        System.out.println("the arrow cost " + newArrow.getCost(newArrow) + " gold");
     }
 }

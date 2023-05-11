@@ -47,7 +47,7 @@ import java.util.Scanner;
 //• Modify your Arrow class one final time to include static methods of the
 //form public static Arrow createEliteArrow() { ... } for each of the three
 //above arrow types.
-//• Modify the program to allow users to choose one of these pre-defined types
+//• <HIER BEN IK GEBLEVEN> Modify the program to allow users to choose one of these pre-defined types
 //or a custom arrow. If they select one of the predefined styles, produce an
 //Arrow instance using one of the new static methods. If they select one
 //of the predefined styles, produce an Arrow instance using one of the new
@@ -75,4 +75,6 @@ public class Day21VinFletchersArrows {
         System.out.println("He cost " + eliteArrow.getCost(eliteArrow) + " gold." );
 
     }
+
+
 }

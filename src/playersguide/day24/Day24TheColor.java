@@ -17,13 +17,15 @@ package playersguide.day24;
 //• In your main method, make two Color-typed variables. Use a constructor
 //to create a color instance and use a static field for the other. Display each
 //of their red, green, and blue channel values.
-//To study if you find this diﬀicult yet: - static final fields are the generally
+//To study if you find this difficult yet: - static final fields are the generally
 //only fields that you can and want to make public. A bit about those fields on
 //GeeksForGeeks
 public class Day24TheColor {
     public static void main(String[] args) {
     Color pink = new Color(255,192,203);
     Color red = Color.red;
+        System.out.println("rgb red: " + red);
+        System.out.println("rgb pink: " + pink);
 
     }
 
@@ -47,6 +49,11 @@ public class Day24TheColor {
             this.redValue = redValue;
             this.greenValue = greenValue;
             this.blueValue = blueValue;
+        }
+
+        @Override
+        public String toString() {
+            return "(" + redValue + "," + greenValue + "," + blueValue + ")";
         }
     }
     }

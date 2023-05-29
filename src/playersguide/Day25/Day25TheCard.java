@@ -16,7 +16,8 @@ import java.util.ArrayList;
 //   (every color with every rank) and display each (for example, “The Red
 //   Ampersand” and “The Blue Seven”).
 //• Answer this question: Why do you think we used a color enumeration here
-//   but made a color class in the previous challenge?
+//   but made a color class in the previous challenge? Ik denk omdat de colorclass er is omdat het over losstaande
+// kleuren gaat en de enum gaat over kleuren van kaarten, anders zou je die niet kunnen combineren?
 public class Day25TheCard {
     public static void main(String[] args) {
 

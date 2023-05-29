@@ -21,5 +21,22 @@ public class Day25TheCard {
 }
 
 class Card{
+ private CardRank cardRank;
+ private CardColor cardColor;
 
+    public CardRank getCardRank() {
+        return cardRank;
+    }
+
+    public void setCardRank(CardRank cardRank) {
+        this.cardRank = cardRank;
+    }
+
+    public CardColor getCardColor() {
+        return cardColor;
+    }
+
+    public void setCardColor(CardColor cardColor) {
+        this.cardColor = cardColor;
+    }
 }

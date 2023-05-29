@@ -1,4 +1,7 @@
 package playersguide.Day25;
+
+import java.util.ArrayList;
+
 //The digital Realms of Java have playing cards like ours but with some differences.
 //Each card has a color (red, green, blue, yellow) and a rank (the numbers 1
 //through 10, followed by the symbols $, %, ^, and &). The third pedestal
@@ -17,48 +20,48 @@ package playersguide.Day25;
 public class Day25TheCard {
     public static void main(String[] args) {
 
-        Card numberCard = new Card();
-        numberCard.setCardColor(CardColor.RED);
-        numberCard.setCardRank(CardRank.NUMBER_SIX);
+        Card numberCard = new Card(CardRank.NUMBER_SIX, CardColor.RED);
         numberCard.NumberOrSymbolCard(numberCard);
 
 
-        Card symbolCard = new Card();
-        symbolCard.setCardColor(CardColor.GREEN);
-        symbolCard.setCardRank(CardRank.SYMBOL_CIRCUMFLEX);
+        Card symbolCard = new Card(CardRank.SYMBOL_CIRCUMFLEX, CardColor.GREEN);
         symbolCard.NumberOrSymbolCard(symbolCard);
+
+        CardDeck();
+
+
+
     }
 
-}
+    public static void CardDeck() {
+        ArrayList deck = new ArrayList();
+        for (int i = 0; i < 14; i++) {
+            CardRank rank = CardRank.values()[i];
 
-class Card{
- private CardRank cardRank;
- private CardColor cardColor;
+            for (int j = 0; j < 4; j++) {
+                Card card = new Card(rank, CardColor.values()[j]);
+                deck.add(card);
+                System.out.println( "The " +card.getCardColor().getColor() + " " + card.getCardRank().getRank() + "\u001B[0m"+ " card" );
 
-    public CardRank getCardRank() {
-        return cardRank;
-    }
 
-    public void setCardRank(CardRank cardRank) {
-        this.cardRank = cardRank;
-    }
-
-    public CardColor getCardColor() {
-        return cardColor;
-    }
-
-    public void setCardColor(CardColor cardColor) {
-        this.cardColor = cardColor;
-    }
-
-    public void NumberOrSymbolCard(Card card){
-        String cardRank = String.valueOf(card.getCardRank());
-        if (cardRank == "SYMBOL_DOLLAR" || cardRank == "SYMBOL_PERCENT"
-                || cardRank == "SYMBOL_CIRCUMFLEX"|| cardRank == "SYMBOL_AMPERSAND"){
-            System.out.println("this card is an symbol card");
+            }
         }
-        else {
-            System.out.println("this card is an number card");
+
         }
     }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,4 +15,11 @@ package playersguide.Day25;
 //• Answer this question: Why do you think we used a color enumeration here
 //   but made a color class in the previous challenge?
 public class Day25TheCard {
+    public static void main(String[] args) {
+
+    }
+}
+
+class Card{
+
 }

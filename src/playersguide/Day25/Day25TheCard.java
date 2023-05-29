@@ -17,7 +17,18 @@ package playersguide.Day25;
 public class Day25TheCard {
     public static void main(String[] args) {
 
+        Card numberCard = new Card();
+        numberCard.setCardColor(CardColor.RED);
+        numberCard.setCardRank(CardRank.NUMBER_SIX);
+        numberCard.NumberOrSymbolCard(numberCard);
+
+
+        Card symbolCard = new Card();
+        symbolCard.setCardColor(CardColor.GREEN);
+        symbolCard.setCardRank(CardRank.SYMBOL_CIRCUMFLEX);
+        symbolCard.NumberOrSymbolCard(symbolCard);
     }
+
 }
 
 class Card{
@@ -38,5 +49,16 @@ class Card{
 
     public void setCardColor(CardColor cardColor) {
         this.cardColor = cardColor;
+    }
+
+    public void NumberOrSymbolCard(Card card){
+        String cardRank = String.valueOf(card.getCardRank());
+        if (cardRank == "SYMBOL_DOLLAR" || cardRank == "SYMBOL_PERCENT"
+                || cardRank == "SYMBOL_CIRCUMFLEX"|| cardRank == "SYMBOL_AMPERSAND"){
+            System.out.println("this card is an symbol card");
+        }
+        else {
+            System.out.println("this card is an number card");
+        }
     }
 }

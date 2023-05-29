@@ -1,4 +1,5 @@
 package playersguide.day20;
+
 import static playersguide.day20.ComposedSoup.*;
 //Simula is impressed with how you reconstructed the box with an enumeration.
 //        When the box opened, you saw a glowing emerald gem inside. You don’t know
@@ -50,7 +51,6 @@ import static playersguide.day20.ComposedSoup.*;
 public class Day20ChallengeSimulasSoup {
     public static void main(String[] args) {
         ComposedSoup();
-
     }
 }
 

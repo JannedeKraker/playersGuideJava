@@ -15,13 +15,13 @@ public class Day17ChallengeCountdown {
 
         countingToNull(10);
     }
-  static void countingToNull(int x){
-      System.out.println(x);
-      if (x > 0){
-      x-=1;
-      countingToNull(x);}
 
- }
-
+    static void countingToNull(int x) {
+        System.out.println(x);
+        if (x > 0) {
+            x -= 1;
+            countingToNull(x);
+        }
+    }
 }
 

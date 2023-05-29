@@ -8,9 +8,7 @@ public enum FeatherType {
     public float getCost() {
         return cost;
     }
-
     private final float cost;
-
     FeatherType(float cost) {
         this.cost = cost;
     }

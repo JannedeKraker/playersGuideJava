@@ -21,11 +21,10 @@ public class Day9RepairingTheClocktower {
         System.out.println("Enter a whole number so that the clock can start ticking: ");
         int number = input.nextInt();
 
-        if (number%2 == 0){
-            System.out.println("Tick");}
-        else {
+        if (number % 2 == 0) {
+            System.out.println("Tick");
+        } else {
             System.out.println("Tock");
         }
-
     }
 }

@@ -57,7 +57,7 @@ public class Day21VinFletchersArrows {
     public static void main(String[] args) {
         Scanner inputKeyboard = new Scanner(System.in);
         Arrow newArrow = new Arrow();
-        Arrow eliteArrow= new Arrow();
+        Arrow eliteArrow = new Arrow();
 
         System.out.println("How long do you want the shaft to be, it must be between 60 - 100 cm ");
         newArrow.setArrowLength(inputKeyboard.nextInt());
@@ -72,9 +72,6 @@ public class Day21VinFletchersArrows {
 
         System.out.println("the elite arrow");
         eliteArrow.createEliteArrow();
-        System.out.println("He cost " + eliteArrow.getCost(eliteArrow) + " gold." );
-
+        System.out.println("He cost " + eliteArrow.getCost(eliteArrow) + " gold.");
     }
-
-
 }

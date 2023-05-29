@@ -14,8 +14,6 @@ public class ComposedSoup {
         System.out.println("Chose what kind of seasoning you want, you can chose out: spicy, sweet and salty");
         Seasoning seasoning = Seasoning.valueOf(inputKeyboard.nextLine().toUpperCase(Locale.ROOT));
         System.out.println("You get: " + seasoning.nameSeasoning + mainIngredient.nameIngredient + typeRecipe.nameTypeRecipe);
-
-
     }
 }
 

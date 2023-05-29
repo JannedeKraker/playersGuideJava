@@ -4,11 +4,11 @@ import java.util.Locale;
 import java.util.Scanner;
 
 
-
 public class Arrow {
     private ArrowHeadType arrowHeadType;
     private FeatherType featherType;
-   private float arrowLength; // length between 60 and 100 cm long
+    private float arrowLength; // length between 60 and 100 cm long
+
     public ArrowHeadType getArrowHeadType() {
         return arrowHeadType;
     }
@@ -29,7 +29,7 @@ public class Arrow {
         return arrowLength;
     }
 
-    public float getCost(Arrow newArrow){
+    public float getCost(Arrow newArrow) {
         float costPerLength = 0.05F;
         float arrowLengthCosts = newArrow.getArrowLength() * costPerLength;
 
@@ -37,32 +37,32 @@ public class Arrow {
     }
 
     public void setArrowLength(int arrowLength) {
-        if ((arrowLength >= 60) && (arrowLength <= 100)){
-        this.arrowLength = arrowLength;}
-        else
-        {System.out.println("the length of the shaft must be between 60 and 100 cm long. \nHow long do you want the shaft to be? ");
+        if ((arrowLength >= 60) && (arrowLength <= 100)) {
+            this.arrowLength = arrowLength;
+        } else {
+            System.out.println("the length of the shaft must be between 60 and 100 cm long. \nHow long do you want the shaft to be? ");
             Scanner intInput = new Scanner(System.in);
             setArrowLength(intInput.nextInt());
-    }
+        }
     }
 
-   public void createEliteArrow() {
+    public void createEliteArrow() {
         Arrow eliteArrow = new Arrow();
 
-        int lengthArrow= 95;
+        int lengthArrow = 95;
         arrowHeadType = arrowHeadType.STEEL;
         featherType = FeatherType.PLASTIC;
 
         eliteArrow.setArrowHeadType(arrowHeadType);
         eliteArrow.setArrowLength(lengthArrow);
         eliteArrow.setFeatherType(featherType);
-       System.out.println("the arrow cost: " + eliteArrow.getCost(eliteArrow) + " gold.");
-   }
+        System.out.println("the arrow cost: " + eliteArrow.getCost(eliteArrow) + " gold.");
+    }
 
     public void createBeginnerArrow() {
         Arrow beginnerArrow = new Arrow();
 
-        int lengthArrow= 75;
+        int lengthArrow = 75;
         arrowHeadType = arrowHeadType.WOOD;
         featherType = FeatherType.GOOSE;
 
@@ -75,7 +75,7 @@ public class Arrow {
     public void createMarksmanArrow() {
         Arrow marksmanArrow = new Arrow();
 
-        int lengthArrow= 65;
+        int lengthArrow = 65;
         arrowHeadType = arrowHeadType.STEEL;
         featherType = FeatherType.GOOSE;
 
@@ -85,7 +85,7 @@ public class Arrow {
         System.out.println("the arrow cost: " + marksmanArrow.getCost(marksmanArrow) + " gold.");
     }
 
-    public void customMadeArrow(){
+    public void customMadeArrow() {
         Scanner inputKeyboard = new Scanner(System.in);
         Arrow newArrow = new Arrow();
 

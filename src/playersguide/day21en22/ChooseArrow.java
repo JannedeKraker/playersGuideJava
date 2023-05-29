@@ -29,11 +29,10 @@ public class ChooseArrow {
                 break;
             case 4:
                 customMadeArrow.customMadeArrow();
-            break;
+                break;
             default:
                 System.out.println("what you typed does not exist, please try again.");
                 menuChoice = inputKeyboard.nextInt();
-
         }
     }
 }

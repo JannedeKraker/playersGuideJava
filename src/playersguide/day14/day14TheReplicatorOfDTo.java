@@ -11,8 +11,10 @@ package playersguide.day14;// While searching an abandoned storage building cont
 // •Use a loop to copy the values out of the original array and into the new one.
 // •Display the contents of both arrays one at a time to illustrate that the
 // Replicator of D’To works again.
+
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class day14TheReplicatorOfDTo {
     public static void main(String[] args) {
 
@@ -25,18 +27,15 @@ public class day14TheReplicatorOfDTo {
         int indexThree = keyboard.nextInt();
         int indexFour = keyboard.nextInt();
 
-        int [] fiveNumbers = new int[]{indexNul, indexOne, indexTwo, indexThree, indexFour};
+        int[] fiveNumbers = new int[]{indexNul, indexOne, indexTwo, indexThree, indexFour};
         System.out.println("the original array is: " + Arrays.toString(fiveNumbers));
 
-        int [] duplicate = new int[5];
+        int[] duplicate = new int[5];
         int i = 0;
 
-        for (int number : fiveNumbers){
-           duplicate[i++] = number;
-       }
-
-        System.out.println("the duplicated one is: "  + Arrays.toString(duplicate));
-
-
+        for (int number : fiveNumbers) {
+            duplicate[i++] = number;
+        }
+        System.out.println("the duplicated one is: " + Arrays.toString(duplicate));
     }
 }

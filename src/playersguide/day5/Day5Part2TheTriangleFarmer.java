@@ -11,10 +11,8 @@ Area = base x height / 2
 */
 public class Day5Part2TheTriangleFarmer {
     public static void main(String[] args) {
-
         double baseSize;
         double heightSize;
-
 
         Scanner input = new Scanner(System.in);
 

@@ -50,7 +50,6 @@ public class Day23ThePoint {
             x = 0;
             y = 0;
         }
-
         public int getX() {
             return x;
         }
@@ -60,12 +59,9 @@ public class Day23ThePoint {
             return "(" + x + "," + y + ")";
         }
 
-
         public int getY() {
             return y;
         }
-
-
     }
 }
 

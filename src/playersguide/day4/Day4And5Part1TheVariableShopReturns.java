@@ -31,7 +31,7 @@ public class Day4And5Part1TheVariableShopReturns {
         System.out.println(iDontKnow);
         System.out.println(listOfChar);
 
-       // day 5 1/2
+        // day 5 1/2
 
         byte8Bit1 = 45;
         byte8Bit2 = 'L';
@@ -57,12 +57,7 @@ public class Day4And5Part1TheVariableShopReturns {
         System.out.println(iDontKnow);
         System.out.println(listOfChar);
     }
-
-
-
-
-
-    }
+}
 
 
 

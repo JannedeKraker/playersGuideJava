@@ -5,7 +5,8 @@ public enum Seasoning {
     SWEET("sweet "),
     SALTY("salty ");
     String nameSeasoning;
-    Seasoning(String nameSeasoning ){
-        this.nameSeasoning =nameSeasoning;
+
+    Seasoning(String nameSeasoning) {
+        this.nameSeasoning = nameSeasoning;
     }
 }

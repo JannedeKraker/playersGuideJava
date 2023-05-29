@@ -29,8 +29,8 @@ Play a sound with Toolkit.getDefaultToolkit().beep(); when the results have been
  */
 public class Day8TheDefenseOfConsolas {
     public static void main(String[] args) {
-       String ANSI_RESET = "\u001B[0m";
-       String ANSI_RED = "\u001B[31m";
+        String ANSI_RESET = "\u001B[0m";
+        String ANSI_RED = "\u001B[31m";
 
         int whichColumn;
         int whichRow;
@@ -54,7 +54,7 @@ public class Day8TheDefenseOfConsolas {
         columnSpaceOne = whichColumn;
         rowSpaceOne = whichRow - 1;
 
-        columnSpaceTwo = whichColumn -1;
+        columnSpaceTwo = whichColumn - 1;
         rowSpaceTwo = whichRow;
 
         columnSpaceThree = whichColumn;
@@ -64,9 +64,9 @@ public class Day8TheDefenseOfConsolas {
         rowSpaceFour = whichRow;
         System.out.println("Defense of Consolas");
         Toolkit.getDefaultToolkit().beep();
-        System.out.println(ANSI_RED + "go to: "+ columnSpaceOne + "," + rowSpaceOne + ANSI_RESET);
-        System.out.println(ANSI_RED + "go to: "+ columnSpaceTwo + "," + rowSpaceTwo + ANSI_RESET);
-        System.out.println(ANSI_RED + "go to: "+ columnSpaceThree + "," + rowSpaceThree + ANSI_RESET);
-        System.out.println(ANSI_RED + "go to: "+ columnSpaceFour + "," + rowSpaceFour + ANSI_RESET);
+        System.out.println(ANSI_RED + "go to: " + columnSpaceOne + "," + rowSpaceOne + ANSI_RESET);
+        System.out.println(ANSI_RED + "go to: " + columnSpaceTwo + "," + rowSpaceTwo + ANSI_RESET);
+        System.out.println(ANSI_RED + "go to: " + columnSpaceThree + "," + rowSpaceThree + ANSI_RESET);
+        System.out.println(ANSI_RED + "go to: " + columnSpaceFour + "," + rowSpaceFour + ANSI_RESET);
     }
 }

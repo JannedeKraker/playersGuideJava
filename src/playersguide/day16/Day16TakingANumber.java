@@ -21,7 +21,7 @@ public class Day16TakingANumber {
     public static void main(String[] args) {
 
         System.out.println(askForNumber("What is the airspeed velocity of an unladen swallow?"));
-        System.out.println(askForNumberInRange("Guess the number.", 0,100));
+        System.out.println(askForNumberInRange("Guess the number.", 0, 100));
     }
 
     public static int askForNumber(String question) {
@@ -38,7 +38,7 @@ public class Day16TakingANumber {
 // than a normal loop. ~
 // so I'm going to do it again with a do while loop instead of recursion.
 
-//    static int askForNumberInRange(String question, int min, int max) {
+    //    static int askForNumberInRange(String question, int min, int max) {
 //        System.out.println(question + "(between " + min + " and " + max + ")");
 //        Scanner keyboard = new Scanner(System.in);
 //        int answer = keyboard.nextInt();
@@ -47,16 +47,16 @@ public class Day16TakingANumber {
 //        }
 //        return answer;
 //    }
-public static int askForNumberInRange(String question, int min, int max) {
-       System.out.println(question + "(between " + min + " and " + max + ")");
-       Scanner keyboard = new Scanner(System.in);
-       int answer = keyboard.nextInt();
-       while (answer < min || answer > max) {
-           System.out.println(question + "(between " + min + " and " + max + ")");
-           answer = keyboard.nextInt();
-       }
-       return answer;
-   }
+    public static int askForNumberInRange(String question, int min, int max) {
+        System.out.println(question + "(between " + min + " and " + max + ")");
+        Scanner keyboard = new Scanner(System.in);
+        int answer = keyboard.nextInt();
+        while (answer < min || answer > max) {
+            System.out.println(question + "(between " + min + " and " + max + ")");
+            answer = keyboard.nextInt();
+        }
+        return answer;
+    }
 }
 
 

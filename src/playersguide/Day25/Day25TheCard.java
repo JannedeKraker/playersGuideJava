@@ -31,7 +31,6 @@ public class Day25TheCard {
         CardDeck();
 
 
-
     }
 
     public static void CardDeck() {
@@ -42,14 +41,14 @@ public class Day25TheCard {
             for (int j = 0; j < 4; j++) {
                 Card card = new Card(rank, CardColor.values()[j]);
                 deck.add(card);
-                System.out.println( "The " +card.getCardColor().getColor() + " " + card.getCardRank().getRank() + "\u001B[0m"+ " card" );
+                System.out.println("The " + card.getCardColor().getColor() + " " + card.getCardRank().getRank() + "\u001B[0m" + " card");
 
 
             }
         }
 
-        }
     }
+}
 
 
 

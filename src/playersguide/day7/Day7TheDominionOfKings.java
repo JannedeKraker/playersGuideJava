@@ -29,7 +29,7 @@ public class Day7TheDominionOfKings {
         int totalPointsEstates = howManyEstates;
 
         System.out.println("Your kingdom is " + (totalPointsProvinces + totalPointsDuchies + totalPointsEstates)
-        + " points worth.");
+                + " points worth.");
 
     }
 }

@@ -19,11 +19,10 @@ public class Day10Watchtower {
         int xValue = input.nextInt();
         System.out.println("Can you also give me the y value?");
         int yValue = input.nextInt();
-        directionIndicator(xValue,yValue);
+        directionIndicator(xValue, yValue);
+    }
 
-
-}
-    static void directionIndicator(int xValue, int yValue){
+    static void directionIndicator(int xValue, int yValue) {
         String yDirection = "";
         String xDirection = "";
         if (xValue > 0) {

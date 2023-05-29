@@ -22,7 +22,6 @@ public class Day6TheFourSistersAndTheDuckbear {
 //        howManyEggs = input.nextInt();
 
         int howManyEggs = Day16TakingANumber.askForNumber("How many chocolate eggs are there today? ");
-
         int eachSisterGet = howManyEggs / 4;
         int duckBearget = howManyEggs % 4;
         System.out.println("Each sister get " + eachSisterGet + " eggs.");

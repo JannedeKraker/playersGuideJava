@@ -110,7 +110,6 @@ public class Day19ChallengeSimulasTest {
                     System.out.println("I can't do what you want with the chest right now. \nOr I don't understand what you are saying. \nWhat do you want to do?");
                     toDoWithChest = inputKeyboard.nextLine();
             }
-
         }
     }
 }

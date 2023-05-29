@@ -5,7 +5,6 @@ public enum TypeRecipe {
     STEW("stew "),
     GUMBO("gumbo ");
     String nameTypeRecipe;
-
     TypeRecipe(String nameTypeRecipe) {
         this.nameTypeRecipe = nameTypeRecipe;
     }

@@ -1,5 +1,7 @@
 package playersguide.day26;
 
+import java.util.regex.Pattern;
+
 //        The fourth pedestal demands constructing a door class with a locking mechanism
 //        that requires a unique numeric code to unlock. You have done something similar
 //        before without using a class, but the locking mechanism is new. The door should
@@ -14,8 +16,7 @@ package playersguide.day26;
 //        Objectives:
 //        • Define a Door class that can keep track of whether it is locked, open, or
 //        closed.
-//        • Make it so you can perform the four transitions defined above with meth-
-//        ods.
+//        • Make it so you can perform the four transitions defined above with methods.
 //        • Build a constructor that requires the starting numeric passcode.
 //        • Build a method that will allow you to change the passcode for an existing
 //        door by supplying the current passcode and new passcode. Only change
@@ -25,4 +26,9 @@ package playersguide.day26;
 //        described above (open, close, lock, unlock) and change the code by typing
 //        in text commands
 public class Day26TheLockedDoor {
+    public static void main(String[] args) {
+
+        Door newDoor = new Door();
+
+    }
 }

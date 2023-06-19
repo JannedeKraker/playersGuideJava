@@ -1,6 +1,7 @@
 package playersguide.day26;
 
 
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 //        The fourth pedestal demands constructing a door class with a locking mechanism
@@ -31,8 +32,13 @@ public class Day26TheLockedDoor {
     public static void main(String[] args) {
 // if you make a new door, the constructor will ask for a pin code.
         Door newDoor = new Door();
-        newDoor.doorOptions(newDoor);
+        ControllerRoom controllerRoom = new ControllerRoom();
+        controllerRoom.doorOptions(newDoor);
+
+
 
 
     }
+
+
 }

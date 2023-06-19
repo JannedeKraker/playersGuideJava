@@ -16,23 +16,18 @@ import java.util.ArrayList;
 //   (every color with every rank) and display each (for example, “The Red
 //   Ampersand” and “The Blue Seven”).
 //• Answer this question: Why do you think we used a color enumeration here
-//   but made a color class in the previous challenge? Ik denk omdat de colorclass er is omdat het over losstaande
-// kleuren gaat en de enum gaat over kleuren van kaarten, anders zou je die niet kunnen combineren?
+//   but made a color class in the previous challenge? I think because the color class is there because it's about detached
+//// colors and the enum is about card colors, otherwise you wouldn't be able to combine them?
 public class Day25TheCard {
     public static void main(String[] args) {
-
         Card numberCard = new Card(CardRank.NUMBER_SIX, CardColor.RED);
         numberCard.NumberOrSymbolCard(numberCard);
-
 
         Card symbolCard = new Card(CardRank.SYMBOL_CIRCUMFLEX, CardColor.GREEN);
         symbolCard.NumberOrSymbolCard(symbolCard);
 
         CardDeck();
-
-
     }
-
     public static void CardDeck() {
         ArrayList deck = new ArrayList();
         for (int i = 0; i < 14; i++) {
@@ -42,11 +37,8 @@ public class Day25TheCard {
                 Card card = new Card(rank, CardColor.values()[j]);
                 deck.add(card);
                 System.out.println("The " + card.getCardColor().getColor() + " " + card.getCardRank().getRank() + "\u001B[0m" + " card");
-
-
             }
         }
-
     }
 }
 

@@ -31,7 +31,6 @@ public class Day24TheColor {
     }
 
     public static class Color {
-
         int redValue = 255;
         int greenValue = 128;
         int blueValue = 255;

@@ -1,5 +1,6 @@
 package playersguide.day26;
 
+
 import java.util.regex.Pattern;
 
 //        The fourth pedestal demands constructing a door class with a locking mechanism
@@ -25,10 +26,13 @@ import java.util.regex.Pattern;
 //        a new Door instance. Allow the user to attempt the four transitions
 //        described above (open, close, lock, unlock) and change the code by typing
 //        in text commands
+//
 public class Day26TheLockedDoor {
     public static void main(String[] args) {
-
+// if you make a new door, the constructor will ask for a pin code.
         Door newDoor = new Door();
+        newDoor.doorOptions(newDoor);
+
 
     }
 }

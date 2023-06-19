@@ -5,28 +5,22 @@ import java.util.ArrayList;
 class Card {
     private CardRank cardRank;
     private CardColor cardColor;
-
     public Card(CardRank cardRank, CardColor cardColor) {
         this.cardRank = cardRank;
         this.cardColor = cardColor;
     }
-
     public CardRank getCardRank() {
         return cardRank;
     }
-
     public void setCardRank(CardRank cardRank) {
         this.cardRank = cardRank;
     }
-
     public CardColor getCardColor() {
         return cardColor;
     }
-
     public void setCardColor(CardColor cardColor) {
         this.cardColor = cardColor;
     }
-
     public void NumberOrSymbolCard(Card card) {
         String cardRank = String.valueOf(card.getCardRank());
         if (cardRank == "SYMBOL_DOLLAR" || cardRank == "SYMBOL_PERCENT"
@@ -36,5 +30,4 @@ class Card {
             System.out.println("this card is an number card");
         }
     }
-
 }

@@ -5,9 +5,13 @@ public enum StateOfDoor {
     CLOSED("closed"),
     LOCKED ("locked");
 
-    private final String stateOfDoor;
+    private String stateOfDoor;
 
     StateOfDoor(String stateOfDoor) {
+        this.stateOfDoor = stateOfDoor;
+    }
+
+    public void setStateOfDoor(String stateOfDoor) {
         this.stateOfDoor = stateOfDoor;
     }
 

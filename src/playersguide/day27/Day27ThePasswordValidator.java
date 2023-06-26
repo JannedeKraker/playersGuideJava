@@ -38,9 +38,17 @@ package playersguide.day27;
 // "^(?=.*[a-z])[#?!@$%^*-](?=.*[A-Z])(?=.*\d)(?!.* )(?!.*T)(?!.*&)[a-zA-Z\d]{6,13}$"
 public class Day27ThePasswordValidator {
     public static void main(String[] args) {
-        PasswordValidator trypasswordValidator = new PasswordValidator();
 
-        String randomPassword = trypasswordValidator.randomPasswordGenerator();
-        trypasswordValidator.randomPasswordValidator(randomPassword);
+        boolean endless = true;
+
+        while (endless) {
+//        PasswordValidatorOne tryPasswordValidator = new PasswordValidatorOne();
+//        String randomPassword = tryPasswordValidator.randomPasswordGenerator();
+//        tryPasswordValidator.passwordValidatorOne(randomPassword);}
+
+            PasswordValidatorTwo tryPasswordValidatorTwo = new PasswordValidatorTwo();
+            String randomPasswordTwo = tryPasswordValidatorTwo.randomPasswordGeneratorTwo();
+            tryPasswordValidatorTwo.passwordValidatorTwo(randomPasswordTwo);
+        }
     }
 }

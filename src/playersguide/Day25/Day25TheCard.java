@@ -21,14 +21,14 @@ import java.util.ArrayList;
 public class Day25TheCard {
     public static void main(String[] args) {
         Card numberCard = new Card(CardRank.NUMBER_SIX, CardColor.RED);
-        numberCard.NumberOrSymbolCard(numberCard);
+        numberCard.numberOrSymbolCard(numberCard);
 
         Card symbolCard = new Card(CardRank.SYMBOL_CIRCUMFLEX, CardColor.GREEN);
-        symbolCard.NumberOrSymbolCard(symbolCard);
+        symbolCard.numberOrSymbolCard(symbolCard);
 
-        CardDeck();
+        printCardDeck();
     }
-    public static void CardDeck() {
+    public static void printCardDeck() {
         ArrayList deck = new ArrayList();
         for (int i = 0; i < 14; i++) {
             CardRank rank = CardRank.values()[i];

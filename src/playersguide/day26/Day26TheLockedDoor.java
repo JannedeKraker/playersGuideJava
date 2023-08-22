@@ -28,17 +28,23 @@ import java.util.regex.Pattern;
 //        described above (open, close, lock, unlock) and change the code by typing
 //        in text commands
 //
-public class Day26TheLockedDoor {
-    public static void main(String[] args) {
+//public class Day26TheLockedDoor {
+//    public static void main(String[] args) {
+//
+//        public void setAlarm() {
+//            double timeAlarm, timeAlarm2, time;
+//            double getOutOfBedTime = 7.15;
+//        }
+//        setAlarm();
 // if you make a new door, the constructor will ask for a pin code.
-        Door newDoor = new Door();
-        ControllerRoom controllerRoom = new ControllerRoom();
-        controllerRoom.doorOptions(newDoor);
-
-
-
-
-    }
-
-
-}
+//        Door newDoor = new Door();
+//        ControllerRoom controllerRoom = new ControllerRoom();
+//        controllerRoom.doorOptions(newDoor);
+//
+//
+//
+//
+//    }
+//
+//
+//}

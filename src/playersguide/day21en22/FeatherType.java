@@ -5,10 +5,10 @@ public enum FeatherType {
     TURKEY(5f),
     GOOSE(3f);
 
+    private final float cost;
     public float getCost() {
         return cost;
     }
-    private final float cost;
     FeatherType(float cost) {
         this.cost = cost;
     }

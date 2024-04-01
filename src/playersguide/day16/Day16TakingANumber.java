@@ -1,22 +1,7 @@
 package playersguide.day16;
-// Many previous tasks have required getting a number from a user. To save time
-//writing this code repeatedly, you have decided to make a method to do this
-//common task.
-
 import java.util.Scanner;
 
-//Objectives:
-//• Make a method with the signature int askForNumber(String text). Dis-
-//play the text parameter in the console window, get a response from the
-//user, convert it to an int, and return it. This might look like this: int
-//result = askForNumber(“What is the airspeed velocity of an unladen swal-
-//low?”);.
-//• Make a method with the signature int askForNumberInRange(String
-//text, int min, int max). Only return if the entered number is between
-//the min and max values. Otherwise, ask again.
-//• Place these methods in at least one of your previous programs to improve
-//it. askForNumber(); used in Day6
-//    askForNumberInRange(); used in Day12
+
 public class Day16TakingANumber {
     public static void main(String[] args) {
 

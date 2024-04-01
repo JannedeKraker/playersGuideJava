@@ -13,7 +13,7 @@ public class PasswordValidatorOne {
 
     public void passwordValidatorOne(String randomPassword) {
 
-        /* this regex means one lowercase letter, one uppercase, one digit, no space, no uppercase T, no &, min 6 max 15 characters*/
+        /* this regex means one lowercase letter, one uppercase, one digit, no space, no uppercase T, no &, min 6 max 13 characters*/
         String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?!.* )(?!.*T)(?!.*&)[a-zA-Z\\d#?!@$%^*+~`=_':;,./|<>-]{6,13}$";
 
         if (Pattern.compile(regex).matcher(randomPassword).matches()) {

@@ -1,4 +1,4 @@
-package playersguide.day21en22;
+package playersguide.day21and22;
 
 import java.util.Scanner;
 

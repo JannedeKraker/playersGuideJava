@@ -1,0 +1,30 @@
+## Narrative 3: The Chamber of Design
+As you finish the final class and place its complete definition back on its pedestal, the writing on each
+pedestal begins to glow a reddish-orange. A beam forms from each pedestal, extending upward towards
+the high cavernous ceiling. Additional runes on the wall begin to shine as well, and the far walls slide
+apart, revealing an opening further into the Catacombs.
+You pass through to the next chamber and find three more pedestals with etched text. On the floor, in
+a ring running around the three pedestals, lie the words, “Only a True Programmer can design a system
+of objects for the ancient games of the people.”
+You must make an object-oriented design (not a complete program) for each game described on the
+three pedestals in the room’s center to continue further.
+
+## IMPORTANT NOTE
+For the next three assignments, do _not_ write a program, only make a design on paper about the objects you need. You can use [CRC cards](http://agilemodeling.com/artifacts/crcModel.htm) or [UML class diagrams](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/) or any other method to express the global design and functionality of a class on paper -_without writing any code!!!_.
+
+## Day 28 Design Challenge: Rock-Paper-Scissors
+The first design pedestal requires you to provide an object-oriented design—a set of objects, classes,
+and how they interact—for the game of Rock-Paper-Scissors, described below:
+- Two human players compete against each other.
+- Each player picks Rock, Paper, or Scissors.
+- Depending on the players’ choices, a winner is determined: Rock beats Scissors, Scissors beats Paper,
+Paper beats Rock. If both players pick the same option, it is a draw.
+- The game must display who won the round.
+- The game will keep running rounds until the window is closed but must remember the historical
+record of how many times each player won and how many draws there were.
+
+**Objectives**:
+
+- Use CRC cards (or a suitable alternative) to outline the objects and classes that may be needed to
+make the game of Rock-Paper-Scissors. You do not need to create this full game; just come up
+with a potential design as a starting point.

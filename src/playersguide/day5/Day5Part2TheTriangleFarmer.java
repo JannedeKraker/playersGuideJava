@@ -2,13 +2,7 @@ package playersguide.day5;
 
 import java.util.Scanner;
 
-/*
-Write a program that lets you input the triangle’s base size and height.
-Compute the area of a triangle by turning the above equation into code.
-Write the result of the computation.
 
-Area = base x height / 2
-*/
 public class Day5Part2TheTriangleFarmer {
     public static void main(String[] args) {
         double baseSize;

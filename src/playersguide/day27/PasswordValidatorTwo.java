@@ -54,9 +54,9 @@ public class PasswordValidatorTwo {
         Random random = new Random();
         StringBuilder stringBuilder = new StringBuilder();
         String randomPassword = null;
-        String alphabet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-~`=[]{}|<>,./?;:'";
+        String characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-~`=[]{}|<>,./?;:'";
         for (int i = 0; i < 13; i++) {
-            char randomChar = alphabet.charAt(random.nextInt(alphabet.length()));
+            char randomChar = characters.charAt(random.nextInt(characters.length()));
             randomPassword = String.valueOf(stringBuilder.append(randomChar));
         }
         System.out.println(randomPassword);

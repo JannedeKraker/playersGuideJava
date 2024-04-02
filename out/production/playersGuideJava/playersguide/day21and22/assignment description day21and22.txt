@@ -1,0 +1,60 @@
+## Narrative 1: The Fountain of Objects
+
+As you eat soup with Simula, she explains that she is the Caretaker of the Heart of Object-Oriented
+Programming—the glowing green gem in the box. For thousands of clock cycles, she has held onto it,
+hoping that someday, a Programmer who understood object-oriented programming would appear to
+restore the Fountain of Objects, destroyed by The Uncoded One, back to what it once was: the lifeblood
+of the entire island.
+She tells you that to do this, you must gather the five keys of Object-Oriented Programming and make
+your way to the Fountain of Objects, whose location is secret. She tells you you can discover its location
+if you visit the Catacombs of the Class and marks that location on your map.
+You leave Simula’s hovel behind and begin the quest to restore the Fountain of Objects to what it once
+was. Your next destination: the Catacombs of the Class!
+
+## Day 21 Challenge 1/2: Vin Fletcher’s Arrows
+Vin Fletcher is a skilled arrow maker. He asks for your help building a new class to represent arrows and
+determine how much he should sell them for.“A tiny fragment of my soul goes into each arrow; I care
+not for the money; I just need to be able to recoup my costs and get food on the table,” he says.
+Each arrow has three parts: the arrowhead (steel, wood, or obsidian),the shaft (a length between 60 and
+100 cm long), and the fletching (plastic, turkey feathers, or goose feathers).
+His costs are as follows: For arrowheads, steel costs 10 gold, wood costs 3 gold, and obsidian costs 5 gold.
+For fletching, plastic costs 10 gold, turkey feathers cost 5 gold, and goose feathers cost 3 gold. For the
+shaft, the price depends on the length: 0.05 gold per centimeter.
+
+**Objectives**:
+
+- Define a new Arrow class with fields for arrowhead type, fletching type, and length. (Hint: arrowhead types and fletching types might be good enumerations.)
+- Allow a user to pick the arrowhead, fletching type, and length and then create a new Arrow instance.
+- Add a getCost method that returns its cost as a float based on the numbers above, and use this to display the arrow’s cost.
+
+## Day 21 Challenge 2/2: Vin’s Trouble
+“Master Programmer!” Vin Fletcher shouts at you as he races to catch up to you. “I have a problem. I
+created an arrow for a young man who took it and changed its length to be half as long as I had designed.
+It no longer fit in his bow correctly and misfired. It sliced his hand pretty bad. He’ll survive, but is there
+any way we can make sure somebody doesn’t change an arrow’s length when they walk away from my
+shop? I don’t want to be the cause of such self-inflicted pain.”With your knowledge of information hiding,
+you know you can help.
+
+**Objectives**:
+
+- Modify your Arrow class to have private instead of public fields.
+- Add in getter methods for each of the fields that you have.
+
+## Day 22 Challenge: Arrow Factories
+Vin Fletcher sometimes makes custom-ordered arrows, but these are rare. Most of the time, he sells one
+of the following standard arrows:
+- The Elite Arrow, made from a steel arrowhead, plastic fletching, and a 95 cm shaft.
+- The Beginner Arrow, made from a wood arrowhead, goose feathers, and a 75 cm shaft.
+- The Marksman Arrow, made from a steel arrowhead, goose feathers, and a 65 cm shaft.
+You can make static methods to make these specific variations of arrows easy.
+
+**Objectives**:
+
+- Modify your Arrow class one final time to include static methods of the form public static
+Arrow createEliteArrow() { ... } for each of the three above arrow types.
+- Modify the program to allow users to choose one of these pre-defined types or a custom arrow. If
+they select one of the predefined styles, produce an Arrow instance using one of the new static
+methods. If
+they select one of the predefined styles, produce an Arrow instance using one of the new static
+methods. If they choose to make a custom arrow, use your earlier code to get their custom data
+about the desired arrow.

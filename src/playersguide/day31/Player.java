@@ -7,12 +7,19 @@ public class Player {
     private int win;
     private int lose;
     private int draw;
+    private String pawn;
+
+    public String getPawn() {
+        return pawn;
+    }
+
     Scanner input = new Scanner(System.in);
 
-    public Player() {
+    public Player(String pawn) {
         System.out.println("Hello, what's your name? ");
         String playerName = input.nextLine();
         this.name = playerName;
+        this.pawn = pawn;
     }
 
     public void setName(String name){

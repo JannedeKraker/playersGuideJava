@@ -1,7 +1,6 @@
 package playersguide.day31;
 
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Scanner;
 
 public class GameBoardTicTacToo {
@@ -41,101 +40,95 @@ public class GameBoardTicTacToo {
 
     }
 
-    public void setPawnAtGameBoard(String pawn) {
+    public void setPawnAtGameBoard(String pawn, int choice) {
         String fieldIsNotEmpty = "You can not choose this field, because it is not empty. Try again.";
-        System.out.println("Where do you place your " + pawn + "?");
-
-        int choice = input.nextInt();
         switch (choice) {
-            // hier heb ik de twee boolean methods omgedraaid om te kijken of dat werkt. Maar dat werkt nog niet. dus naar de methode is there a Winner kijken.
+
             case 1:
-                if (isThereAWinner()) break;
-                else if (isTheFieldEmpty(choice))
-                fieldLine1.replace(1, 2, pawn);
+                 if (isTheFieldEmpty(choice))
+                    fieldLine1.replace(1, 2, pawn);
                 else {
                     System.out.println(fieldIsNotEmpty);
-                    setPawnAtGameBoard(pawn);
+                    setPawnAtGameBoard(pawn, choice);
                 }
                 break;
             case 2:
-                if (isTheFieldEmpty(choice))
+                 if (isTheFieldEmpty(choice))
                     fieldLine1.replace(5, 6, pawn);
-                else if (isThereAWinner()) break;
                 else {
                     System.out.println(fieldIsNotEmpty);
-                    setPawnAtGameBoard(pawn);
+                    setPawnAtGameBoard(pawn, choice);
                 }
                 break;
             case 3:
                 if (isTheFieldEmpty(choice))
                     fieldLine1.replace(9, 10, pawn);
-                else if (isThereAWinner()) break;
                 else {
                     System.out.println(fieldIsNotEmpty);
-                    setPawnAtGameBoard(pawn);
+                    setPawnAtGameBoard(pawn, choice);
                 }
                 break;
             case 4:
                 if (isTheFieldEmpty(choice))
                     fieldLine2.replace(1, 2, pawn);
-                else if (isThereAWinner()) break;
                 else {
                     System.out.println(fieldIsNotEmpty);
-                    setPawnAtGameBoard(pawn);
+                    setPawnAtGameBoard(pawn, choice);
                 }
                 break;
             case 5:
-                if (isTheFieldEmpty(choice))
+                 if (isTheFieldEmpty(choice))
                     fieldLine2.replace(5, 6, pawn);
-                else if (isThereAWinner()) break;
                 else {
                     System.out.println(fieldIsNotEmpty);
-                    setPawnAtGameBoard(pawn);
+                    setPawnAtGameBoard(pawn, choice);
                 }
                 break;
             case 6:
                 if (isTheFieldEmpty(choice))
                     fieldLine2.replace(9, 10, pawn);
-                else if (isThereAWinner()) break;
                 else {
                     System.out.println(fieldIsNotEmpty);
-                    setPawnAtGameBoard(pawn);
+                    setPawnAtGameBoard(pawn, choice);
                 }
                 break;
             case 7:
-                if (isTheFieldEmpty(choice))
+             if (isTheFieldEmpty(choice))
                     fieldLine3.replace(1, 2, pawn);
-                else if (isThereAWinner()) break;
                 else {
                     System.out.println(fieldIsNotEmpty);
-                    setPawnAtGameBoard(pawn);
+                    setPawnAtGameBoard(pawn, choice);
                 }
                 break;
             case 8:
-                if (isTheFieldEmpty(choice))
+               if (isTheFieldEmpty(choice))
                     fieldLine3.replace(5, 6, pawn);
-                else if (isThereAWinner()) break;
                 else {
                     System.out.println(fieldIsNotEmpty);
-                    setPawnAtGameBoard(pawn);
+                    setPawnAtGameBoard(pawn, choice);
                 }
                 break;
             case 9:
-                if (isTheFieldEmpty(choice))
+               if (isTheFieldEmpty(choice))
                     fieldLine3.replace(9, 10, pawn);
-                else if (isThereAWinner()) break;
                 else {
                     System.out.println(fieldIsNotEmpty);
-                    setPawnAtGameBoard(pawn);
+                    setPawnAtGameBoard(pawn, choice);
                 }
                 break;
             default:
                 System.out.println("I don't understand the input, try again");
-                setPawnAtGameBoard(pawn);
+                setPawnAtGameBoard(pawn, choice);
                 break;
         }
 
 
+    }
+
+    public int getChoice(String pawn) {
+        System.out.println("Where do you place your " + pawn + "?");
+        int choice = input.nextInt();
+        return choice;
     }
 
     public boolean isTheFieldEmpty(int choice) {
@@ -185,8 +178,9 @@ public class GameBoardTicTacToo {
         return winnerX || winnerO;
 
     }
+
     boolean compare(StringBuilder one, StringBuilder two) {
-        if (one.length() != two.length()){
+        if (one.length() != two.length()) {
             return false;
         }
         for (int i = 0; i < one.length(); i++) {

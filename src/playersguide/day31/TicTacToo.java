@@ -1,19 +1,21 @@
 package playersguide.day31;
 
 public class TicTacToo {
-
+    static String playerOnePawn = "X";
+    static String playerTwoPawn = "O";
     public static void main(String[] args) {
-        String playerOnePawn = "X";
-        String playerTwoPawn = "O";
+
         startGame();
         GameBoardTicTacToo newGame = new GameBoardTicTacToo();
         for (int i = 1; i <= 5; i++) {
-            newGame.setPawnAtGameBoard(playerOnePawn);
+            if(newGame.isThereAWinner()){break;}
+            newGame.setPawnAtGameBoard(playerOnePawn, newGame.getChoice(playerOnePawn));
             newGame.getGameBoardTicTacToo();
             if (i == 5) {
                 System.out.println("The board is full.");
             } else {
-                newGame.setPawnAtGameBoard(playerTwoPawn);
+                if(newGame.isThereAWinner()){break;}
+                newGame.setPawnAtGameBoard(playerTwoPawn,newGame.getChoice(playerTwoPawn));
                 newGame.getGameBoardTicTacToo();
             }
         }
@@ -21,9 +23,9 @@ public class TicTacToo {
 
     private static void startGame() {
         System.out.println("Player X: ");
-        Player playerOne = new Player();
+        Player playerOne = new Player(playerOnePawn);
         System.out.println("Player O: ");
-        Player playerTwo = new Player();
+        Player playerTwo = new Player(playerTwoPawn);
         System.out.println("Hello " + playerOne.getName() + " and " + playerTwo.getName() + ". \nWelcome to the tic tac too Game!");
     }
 }

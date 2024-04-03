@@ -167,7 +167,7 @@ public class GameBoardTicTacToo {
         }
     }
 
-    public boolean isThereAWinner() {
+    public boolean isThereAWinner(TicTacToo ticTacToo) {
         StringBuilder lineXWinner = new StringBuilder(" X | X | X ");
         StringBuilder lineOWinner = new StringBuilder(" O | O | O ");
 
@@ -205,12 +205,15 @@ public class GameBoardTicTacToo {
 
         if (winnerX || winnerO) {
             System.out.println(winnerX ? "Player X has won!" : "Player O has won!");
+            ticTacToo.whoIsTheWinner(winnerX ? "X" : "O");
         }
         if (winnerXVertical || winnerOVertical) {
             System.out.println(winnerXVertical ? "Player X has won!" : "Player O has won!");
+            ticTacToo.whoIsTheWinner(winnerXVertical ? "X" : "O");
         }
         if (winnerXSlenting || winnerOSlenting) {
             System.out.println(winnerXSlenting ? "Player X has won!" : "Player O has won!");
+            ticTacToo.whoIsTheWinner(winnerXSlenting ? "X" : "O");
         }
         return winnerX || winnerO || winnerXVertical || winnerOVertical || winnerXSlenting || winnerOSlenting;
 

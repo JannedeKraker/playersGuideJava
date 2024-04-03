@@ -34,7 +34,7 @@ public class Player {
     }
 
     public void setWin(int win) {
-        this.win = win;
+        this.win += win;
     }
 
     public int getLose() {
@@ -42,7 +42,7 @@ public class Player {
     }
 
     public void setLose(int lose) {
-        this.lose = lose;
+        this.lose += lose;
     }
 
     public int getDraw() {
@@ -50,6 +50,6 @@ public class Player {
     }
 
     public void setDraw(int draw) {
-        this.draw = draw;
+        this.draw += draw;
     }
 }

@@ -19,6 +19,7 @@ public class TicTacToo {
                 newGame.getGameBoardTicTacToo();
             }
         }
+
     }
 
     private static void startGame() {

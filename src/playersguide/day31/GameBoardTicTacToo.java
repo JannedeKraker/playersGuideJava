@@ -45,7 +45,7 @@ public class GameBoardTicTacToo {
         switch (choice) {
 
             case 1:
-                 if (isTheFieldEmpty(choice))
+                if (isTheFieldEmpty(choice))
                     fieldLine1.replace(1, 2, pawn);
                 else {
                     System.out.println(fieldIsNotEmpty);
@@ -53,7 +53,7 @@ public class GameBoardTicTacToo {
                 }
                 break;
             case 2:
-                 if (isTheFieldEmpty(choice))
+                if (isTheFieldEmpty(choice))
                     fieldLine1.replace(5, 6, pawn);
                 else {
                     System.out.println(fieldIsNotEmpty);
@@ -77,7 +77,7 @@ public class GameBoardTicTacToo {
                 }
                 break;
             case 5:
-                 if (isTheFieldEmpty(choice))
+                if (isTheFieldEmpty(choice))
                     fieldLine2.replace(5, 6, pawn);
                 else {
                     System.out.println(fieldIsNotEmpty);
@@ -93,7 +93,7 @@ public class GameBoardTicTacToo {
                 }
                 break;
             case 7:
-             if (isTheFieldEmpty(choice))
+                if (isTheFieldEmpty(choice))
                     fieldLine3.replace(1, 2, pawn);
                 else {
                     System.out.println(fieldIsNotEmpty);
@@ -101,7 +101,7 @@ public class GameBoardTicTacToo {
                 }
                 break;
             case 8:
-               if (isTheFieldEmpty(choice))
+                if (isTheFieldEmpty(choice))
                     fieldLine3.replace(5, 6, pawn);
                 else {
                     System.out.println(fieldIsNotEmpty);
@@ -109,7 +109,7 @@ public class GameBoardTicTacToo {
                 }
                 break;
             case 9:
-               if (isTheFieldEmpty(choice))
+                if (isTheFieldEmpty(choice))
                     fieldLine3.replace(9, 10, pawn);
                 else {
                     System.out.println(fieldIsNotEmpty);
@@ -170,12 +170,49 @@ public class GameBoardTicTacToo {
     public boolean isThereAWinner() {
         StringBuilder lineXWinner = new StringBuilder(" X | X | X ");
         StringBuilder lineOWinner = new StringBuilder(" O | O | O ");
+
+        StringBuilder firstLineVertical = new StringBuilder();
+            firstLineVertical.append(fieldLine1.substring(0, 4))
+                             .append(fieldLine2.substring(0, 4))
+                             .append(fieldLine3.substring(0, 3));
+
+        StringBuilder secondLineVertical = new StringBuilder();
+            secondLineVertical.append(fieldLine1.substring(4, 9))
+                              .append(fieldLine2.substring(5, 9))
+                              .append(fieldLine3.substring(5, 7));
+
+        StringBuilder thirdLineVertical = new StringBuilder();
+            thirdLineVertical.append(fieldLine1.substring(8, 11))
+                             .append(fieldLine2.substring(7, 11))
+                             .append(fieldLine3.substring(7, 11));
+
+        StringBuilder firstSlentingLine = new StringBuilder();
+            firstSlentingLine.append(fieldLine1.substring(0, 4))
+                             .append(fieldLine2.substring(4, 8))
+                             .append(fieldLine3.substring(8, 11));
+
+        StringBuilder secondSlentingLine = new StringBuilder();
+            secondSlentingLine.append(fieldLine1.substring(8, 11))
+                              .append(fieldLine2.substring(3, 8))
+                              .append(fieldLine3.substring(0, 3));
+
         boolean winnerX = compare(fieldLine1, lineXWinner) | compare(fieldLine2, lineXWinner) | compare(fieldLine3, lineXWinner);
         boolean winnerO = compare(fieldLine1, lineOWinner) | compare(fieldLine2, lineOWinner) | compare(fieldLine3, lineOWinner);
+        boolean winnerXVertical = compare(lineXWinner, firstLineVertical) | compare(lineXWinner, secondLineVertical) | compare(lineXWinner, thirdLineVertical);
+        boolean winnerOVertical = compare(lineOWinner, firstLineVertical) | compare(lineOWinner, secondLineVertical) | compare(lineOWinner, thirdLineVertical);
+        boolean winnerXSlenting = compare(lineXWinner, firstSlentingLine) | compare(lineXWinner, secondSlentingLine);
+        boolean winnerOSlenting = compare(lineOWinner, firstSlentingLine) | compare(lineOWinner, secondSlentingLine);
+
         if (winnerX || winnerO) {
             System.out.println(winnerX ? "Player X has won!" : "Player O has won!");
         }
-        return winnerX || winnerO;
+        if (winnerXVertical || winnerOVertical) {
+            System.out.println(winnerXVertical ? "Player X has won!" : "Player O has won!");
+        }
+        if (winnerXSlenting || winnerOSlenting) {
+            System.out.println(winnerXSlenting ? "Player X has won!" : "Player O has won!");
+        }
+        return winnerX || winnerO || winnerXVertical || winnerOVertical || winnerXSlenting || winnerOSlenting;
 
     }
 

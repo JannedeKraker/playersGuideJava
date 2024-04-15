@@ -1,1 +1,12 @@
-I have yet to start this assignment.
+I started, I created a player.
+and a game board.
+Now I have to work on making the methods in GameboardTicTacToo
+such that the players can fill in x and o's in the right place.
+I am at the setXAtGameBoard method.
+
+I managed to get the board filled out.
+But he does not yet check whether there is a winner or not.
+So I have to continue with that.
+
+she checks if there is a winner.
+Now i have to work on if there is a winner, the player counts how much times he has won.

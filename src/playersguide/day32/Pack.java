@@ -62,6 +62,8 @@ public class Pack {
                 volumeCount += item.getVolume();
                 weightCount += item.getWeight();
                 itemCount++;
+                System.out.println( "after adding "+ item.getName() + ".\nThe volume of the package is: " + volumeCount + "." +
+                        "\nThe weight of the package is: " + weightCount + ". \nThere are "+ itemCount + " items in your package.");
                 this.items[i] = item;
                 i++;
             }

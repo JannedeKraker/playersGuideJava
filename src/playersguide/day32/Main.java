@@ -5,8 +5,10 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        InventoryItem[] items = new InventoryItem[]{new Food(), new Bow(), new Rope(), new Sword(),new Water()};
-        Pack pack1 = new Pack(16,16,2);
+        Pack pack1 = new Pack(12,12,6);
+        Menu menu = new Menu();
+        InventoryItem[] items = new InventoryItem[]{menu.getMenu(), menu.getMenu(), menu.getMenu(), menu.getMenu(),menu.getMenu(), menu.getMenu()};
+
         pack1.add(items);
         System.out.println("volume now is: " + pack1.getVolume());
         System.out.println("Max volume is: " + pack1.getMaxVolume());

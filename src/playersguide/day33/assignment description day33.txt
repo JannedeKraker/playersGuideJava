@@ -1,0 +1,14 @@
+## Day 33 Challenge: Labeling Inventory
+You realize that your inventory items are not easy to sort through. If you could make it easy to label all
+of your inventory items, it would be easier to know what items you have in your pack.
+Modify your inventory program from the previous level as described below.
+
+**Objectives**:
+
+- Override the existing toString method (from the object base class) on all of your inventory item
+subclasses to give them a name. For example, new Rope().toString() should return "Rope".
+- Override toString on the Pack class to display the contents of the pack. If a pack contains water,
+rope, and two arrows, then calling toString on that Pack object could look like "Pack
+containing Water Rope Arrow Arrow".
+- Before the user chooses the next item to add, display the pack’s current contents via its new
+toString method.

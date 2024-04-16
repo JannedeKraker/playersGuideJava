@@ -4,7 +4,8 @@ public abstract class InventoryItem {
     private final double weight;
     private final double volume;
     private String name;
-    public InventoryItem(double weight, double volume){
+
+    public InventoryItem(double weight, double volume) {
         this.weight = weight;
         this.volume = volume;
     }
@@ -23,5 +24,11 @@ public abstract class InventoryItem {
 
     public double getVolume() {
         return volume;
+    }
+
+    @Override
+    public String toString(){
+        return this.name;
+
     }
 }

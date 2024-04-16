@@ -10,6 +10,7 @@ public class Main {
         InventoryItem[] items = new InventoryItem[]{menu.getMenu(), menu.getMenu(), menu.getMenu(), menu.getMenu(),menu.getMenu(), menu.getMenu()};
 
         pack1.add(items);
+        System.out.println(pack1.toString());
         System.out.println("volume now is: " + pack1.getVolume());
         System.out.println("Max volume is: " + pack1.getMaxVolume());
         System.out.println("weight now is: " + pack1.getWeight());

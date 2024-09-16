@@ -9,8 +9,8 @@ public class Pack {
     int totalNumberOfItems;
     InventoryItem[] items;
     int itemCount;
-    double volumeCount;
-    double weightCount;
+    double volumeCount = 0;
+    double weightCount = 0;
 
     public Pack(double maxVolume, double maxWeight, int totalNumberOfItems) {
         this.maxVolume = maxVolume;
@@ -46,30 +46,34 @@ public class Pack {
 
     public boolean add(InventoryItem[] items) {
         int i = 0;
-        for (InventoryItem item : items) {
-            if (volumeCount >= maxVolume || item.getVolume() > (maxVolume - volumeCount)) {
-                System.out.println("The package has to much volume if you add this " + item + ".");
-                return false;
-            } else if (weightCount >= maxWeight || item.getWeight() > (maxWeight - weightCount)) {
-                System.out.println("The package has to much weight if you add this " + item + ".");
-                return false;
+        if (items.length == 0) {
+            return false;
+        } else {
+            for (InventoryItem item : items) {
+                if (item == null) {
+                    return false;
+                } else if (volumeCount >= maxVolume || item.getVolume() > (maxVolume - volumeCount)) {
+                    System.out.println("The package has to much volume if you add this " + item + ".");
+                    return false;
+                } else if (weightCount >= maxWeight || item.getWeight() > (maxWeight - weightCount)) {
+                    System.out.println("The package has to much weight if you add this " + item + ".");
+                    return false;
+                } else if (itemCount == totalNumberOfItems) {
+                    System.out.println("There are to many items if you add the " + item + ".");
+                    return false;
+                } else {
+                    volumeCount += item.getVolume();
+                    weightCount += item.getWeight();
+                    itemCount++;
+                    System.out.println("after adding " + item + ".\nThe volume of the package is: " + volumeCount + "." +
+                            "\nThe weight of the package is: " + weightCount + ". \nThere are " + itemCount + " items in your package.");
+                    this.items[i] = item;
+                    i++;
+                }
 
-            } else if (itemCount == totalNumberOfItems) {
-                System.out.println("There are to many items if you add the " + item + ".");
-                return false;
-
-            } else {
-                volumeCount += item.getVolume();
-                weightCount += item.getWeight();
-                itemCount++;
-                System.out.println("after adding " + item + ".\nThe volume of the package is: " + volumeCount + "." +
-                        "\nThe weight of the package is: " + weightCount + ". \nThere are " + itemCount + " items in your package.");
-                this.items[i] = item;
-                i++;
             }
-
+            return true;
         }
-        return true;
     }
 
     @Override

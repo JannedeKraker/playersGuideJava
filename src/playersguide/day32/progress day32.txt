@@ -1,0 +1,5 @@
+er gaat iets mis tijdens het inpakken van de tas, hij laat de vorige keuze zien in plaats van de nieuwe keuze, het is lang geleden dat ik dit programma
+schreef dus ik moet even uitzoeken waar wat gebeurd...
+
+ik moet op zoek naar waar: after adding staat. --> het staat in de pack class, waarom laat hij niet het nieuwe gekozen item zien?
+er gaat hier iets mis en ik kom er niet meer uit.

@@ -8,7 +8,7 @@ public class Pack {
     double maxWeight;
     int totalNumberOfItems;
     InventoryItem[] items;
-    int itemCount;
+    int itemCount = 0;
     double volumeCount = 0;
     double weightCount = 0;
 
@@ -65,9 +65,10 @@ public class Pack {
                     volumeCount += item.getVolume();
                     weightCount += item.getWeight();
                     itemCount++;
-                    System.out.println("after adding " + item + ".\nThe volume of the package is: " + volumeCount + "." +
-                            "\nThe weight of the package is: " + weightCount + ". \nThere are " + itemCount + " items in your package.");
                     this.items[i] = item;
+                    System.out.println("The volume of the package is: " + volumeCount + "." +
+                            "\nThe weight of the package is: " + weightCount + ". \nThere are " + itemCount + " items in your package.");
+
                     i++;
                 }
 

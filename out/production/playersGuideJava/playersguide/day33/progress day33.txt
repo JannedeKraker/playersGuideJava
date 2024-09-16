@@ -1,0 +1,3 @@
+I have done: two times overriding the toString method.
+I have to do: Before the user chooses the next item to add, display the pack’s current contents via its new
+              toString method.

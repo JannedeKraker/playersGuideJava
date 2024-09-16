@@ -45,7 +45,7 @@ public class Pack {
     }
 
     public boolean add(InventoryItem[] items) {
-        int i = 0;
+
         if (items.length == 0) {
             return false;
         } else {
@@ -64,14 +64,8 @@ public class Pack {
                 } else {
                     volumeCount += item.getVolume();
                     weightCount += item.getWeight();
-                    itemCount++;
-                    this.items[i] = item;
-                    System.out.println("The volume of the package is: " + volumeCount + "." +
-                            "\nThe weight of the package is: " + weightCount + ". \nThere are " + itemCount + " items in your package.");
-
-                    i++;
+                    this.items[itemCount++] = item;
                 }
-
             }
             return true;
         }

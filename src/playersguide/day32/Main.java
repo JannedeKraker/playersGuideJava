@@ -1,7 +1,5 @@
 package playersguide.day32;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -14,23 +12,15 @@ public class Main {
     }
 
     private static void go() {
-        Pack pack1 = new Pack(12, 12, 12);
-        Menu menu = new Menu();
+        Pack pack = new Pack(12, 12, 12);
+
         boolean addmore = true;
-        int i = 0;
-        InventoryItem[] items = new InventoryItem[20];
-// het gaat nog niet zoals ik wil, hij geeft nu achteraf aan wat er in the pack zit, maar dat moet tussen door voor day 33.
         while (addmore) {
-
-            items[i] = menu.getMenu();
-            i++;
-
-
-            System.out.println("Do you want to add more items in your pack? y/n");
-            String choice = input.next();
-            addmore = choice.equals("y");
+            pack.add(Menu.getItemFromUser());
+            System.out.println(pack);
+            addmore = Menu.getYesOrNoFromUser();
         }
-        pack1.add(items);
-        System.out.println(pack1);
+
+        System.out.println(pack);
     }
 }

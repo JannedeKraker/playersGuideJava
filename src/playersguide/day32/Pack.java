@@ -70,6 +70,7 @@ public class Pack {
 
 
     @Override
+    /* Hoe zou je deze methode schrijven zonder System.out.println? Dat het echt de kloppende String levert. */
     public String toString() {
         System.out.println("pack containing:  ");
         for (InventoryItem item : items) {

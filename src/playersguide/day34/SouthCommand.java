@@ -2,8 +2,10 @@ package playersguide.day34;
 
 public class SouthCommand extends RobotCommand{
     public void run(Robot robot) {
-        int oneStepToSouth = robot.getY();
+        if(robot.isPowered()){
+            int oneStepToSouth = robot.getY();
         oneStepToSouth--;
         robot.setY(oneStepToSouth);
-    }
+        }
+        else System.out.println("the robot is not Powered");}
 }

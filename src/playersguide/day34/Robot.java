@@ -21,6 +21,10 @@ class Robot {
         this.y = y;
     }
 
+    public boolean isPowered() {
+        return isPowered;
+    }
+
     private boolean isPowered;
 
     public void setPowered(boolean powered) {

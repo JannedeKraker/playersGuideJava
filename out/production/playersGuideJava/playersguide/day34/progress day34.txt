@@ -1,2 +1,22 @@
-dit gaat over abstract methods, daar heb ik nog niet veel mee geoefend, die moet ik ook voor het oca goed snappen, dat doe ik nog niet, dus ga ik me nu in
-verdiepen
+- Copy the code above into a new project. done
+
+- Create a RobotCommand class with a public and abstract void run(Robot robot) method. (The
+code above should compile after this step.) done
+
+- Make OnCommand and OffCommand classes that inherit from RobotCommand and turn the robot
+on or off by overriding the `run` method.  done
+
+- Make a NorthCommand, SouthCommand, WestCommand, and EastCommand that move the robot 1
+unit in the +y direction, 1 unit in the -y direction, 1 unit in the -x direction, and 1 unit in the +x
+direction, respectively. Also, ensure that these commands only work if the robot’s isPowered is true.
+- Make your main method able to collect three commands from the console window. Generate new
+RobotCommand objects based on the text entered. After filling the robot’s command set with these
+new RobotCommand objects, use the robot’s `run` method to execute them. For example:
+```
+on
+north
+west
+
+[0 0 True]
+[0 1 True]
+[-1 1 True]

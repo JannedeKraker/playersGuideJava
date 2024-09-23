@@ -11,8 +11,10 @@ public class Main {
     public static void main(String[] args) {
         RobotCommand input1 = getCommandFromUser();
         input1.run(robot);
+        System.out.println(robot);
         RobotCommand input2 = getCommandFromUser();
         input2.run(robot);
+        System.out.println(robot);
         RobotCommand input3 = getCommandFromUser();
         input3.run(robot);
         System.out.println(robot);

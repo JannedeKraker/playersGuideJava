@@ -9,6 +9,10 @@ on or off by overriding the `run` method.  done
 - Make a NorthCommand, SouthCommand, WestCommand, and EastCommand that move the robot 1
 unit in the +y direction, 1 unit in the -y direction, 1 unit in the -x direction, and 1 unit in the +x
 direction, respectively. Also, ensure that these commands only work if the robot’s isPowered is true.
+
+done
+
+hier moet ik mee beginnen:
 - Make your main method able to collect three commands from the console window. Generate new
 RobotCommand objects based on the text entered. After filling the robot’s command set with these
 new RobotCommand objects, use the robot’s `run` method to execute them. For example:
@@ -20,3 +24,5 @@ west
 [0 0 True]
 [0 1 True]
 [-1 1 True]
+
+done

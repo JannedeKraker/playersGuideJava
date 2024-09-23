@@ -1,0 +1,19 @@
+## Day 35 Challenge: Robotic Interface
+With your knowledge of interfaces, you realize you can refine the old robot you found in the mud to use
+interfaces instead of the original design. Instead of an abstract RobotCommand base class, it could
+become an RobotCommand interface!
+Building on your solution to the Old Robot challenge, perform the changes below:
+
+**Objectives**:
+
+- Change your abstract RobotCommand class into an RobotCommand interface.
+- Remove the unnecessary public and abstract keywords from the run method.
+- Change the Robot class to use the interface
+- Make all of your commands implement this new interface instead of extending the RobotCommand
+class that no longer exists. You will also want to remove the @Override keywords in these classes.
+- Ensure your program still compiles and runs.
+- Answer this question: Do you feel this is an improvement over using an abstract base class? Why
+or why not?
+
+**To study if you find this difficult yet:**
+- [W3 schools interface](https://www.w3schools.com/java/java_interface.asp)

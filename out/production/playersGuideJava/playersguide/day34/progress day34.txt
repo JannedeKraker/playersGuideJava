@@ -12,7 +12,7 @@ direction, respectively. Also, ensure that these commands only work if the robot
 
 done
 
-hier moet ik mee beginnen:
+I have to start with this:
 - Make your main method able to collect three commands from the console window. Generate new
 RobotCommand objects based on the text entered. After filling the robot’s command set with these
 new RobotCommand objects, use the robot’s `run` method to execute them. For example:

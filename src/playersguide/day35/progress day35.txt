@@ -1,0 +1,14 @@
+- Change your abstract RobotCommand class into an RobotCommand interface. done
+
+- Remove the unnecessary public and abstract keywords from the run method. done
+
+- Change the Robot class to use the interface. // How can I do that? He already does it without changing anything.
+
+- Make all of your commands implement this new interface instead of extending the RobotCommand
+class that no longer exists. You will also want to remove the @Override keywords in these classes. done
+
+- Ensure your program still compiles and runs. done
+
+- Answer this question: Do you feel this is an improvement over using an abstract base class? Why
+or why not? in this case not, but if you have to use more different interfaces, then it is more convenient.
+

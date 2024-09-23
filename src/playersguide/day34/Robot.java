@@ -39,4 +39,12 @@ class Robot {
             System.out.printf("[%d %d %b]\n", x, y, isPowered);
         }
     }
+
+    public String toString() {
+        boolean isPowered = isPowered();
+        int x = getX();
+        int y = getY();
+        String robotState = "[" + x + " " + y + " " + isPowered + "]";
+        return robotState;
+    }
 }

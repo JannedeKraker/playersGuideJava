@@ -1,0 +1,8 @@
+- Create a Coordinate record that can represent a room coordinate with a row and column.
+done
+- Ensure Coordinate is immutable.
+done
+- Make a method to determine if one coordinate is adjacent to another (differing only by a single row
+or column).
+- Write a main method that creates a few coordinates and determines if they are adjacent to each
+other to prove that it is working correctly.

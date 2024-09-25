@@ -1,0 +1,20 @@
+
+- Swords can be made out of any of the following materials: wood, bronze, iron, steel, and the rare
+binarium. Create an enumeration to represent the material type.
+done.
+- Gemstones can be attached to a sword, which gives them strange powers through Cygnus and Lyra’s
+touch. Gemstone types include emerald, amber, sapphire, diamond, and the rare bitstone. Or no
+gemstone at all. Create an enumeration to represent a gemstone type.
+done
+- Create a Sword record with a material, gemstone, length, and crossguard width.
+done
+- In your main program, create a basic Sword instance made out of iron and with no gemstone.
+done
+Then create two variations on the basic sword,
+ done
+
+ defining methods in Sword that produce a modified copy, like `Sword withMaterial(Material material)`.
+done ---> You can just do that with the constructor, right?
+- Give sword a toString method that produces output like "a steel sword of 85 centimetres long, a crossguard width of 19 cm, and an embedded ruby" or "a plain binarium sword of 55 centimetres long and a crossguard width of 15 cm"
+done
+- Display all three sword instances with code like System.out.println(original);.

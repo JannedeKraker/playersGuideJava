@@ -25,4 +25,14 @@ public class Sword {
     public Sword withMaterial(SwordMaterial swordMaterial){
         return new Sword(swordMaterial);
     }
+
+    @Override
+    public String toString() {
+        String string;
+        if(gemstoneType == null){
+            string = "a " + swordMaterial.name + " sword of " + length + " centimetres long, a crossguard width of " + crossguardWidth + " cm";
+        }
+        else string =  "a " + swordMaterial.name + " sword of " + length + " centimetres long, a crossguard width of " + crossguardWidth + "cm, and an embedded " + gemstoneType.name;
+    return string;}
 }
+

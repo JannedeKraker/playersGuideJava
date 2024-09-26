@@ -18,3 +18,4 @@ done ---> You can just do that with the constructor, right?
 - Give sword a toString method that produces output like "a steel sword of 85 centimetres long, a crossguard width of 19 cm, and an embedded ruby" or "a plain binarium sword of 55 centimetres long and a crossguard width of 15 cm"
 done
 - Display all three sword instances with code like System.out.println(original);.
+done

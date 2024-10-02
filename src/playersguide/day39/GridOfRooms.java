@@ -24,6 +24,7 @@ public class GridOfRooms {
             case "fountain off":
                 fountain.setFountainState(false);
                 return "You hear a dripping sound.";
+            default: return " ";
         }
     }
 
@@ -74,8 +75,8 @@ public class GridOfRooms {
                 return "we are lost";
 
         }
-
-
     }
-
 }
+
+
+

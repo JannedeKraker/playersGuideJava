@@ -14,7 +14,8 @@ Then create two variations on the basic sword,
  done
 
  defining methods in Sword that produce a modified copy, like `Sword withMaterial(Material material)`.
-done ---> You can just do that with the constructor, right?
+done
 - Give sword a toString method that produces output like "a steel sword of 85 centimetres long, a crossguard width of 19 cm, and an embedded ruby" or "a plain binarium sword of 55 centimetres long and a crossguard width of 15 cm"
 done
 - Display all three sword instances with code like System.out.println(original);.
+done

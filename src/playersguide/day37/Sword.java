@@ -12,18 +12,22 @@ public class Sword {
         this.length = length;
         this.crossguardWidth = crossguardWidth;
     }
+
+    public Sword(SwordMaterial swordMaterial, GemstoneType gemstoneType,int length){
+        this(swordMaterial,gemstoneType,length, 20);
+
+    }
     public Sword(SwordMaterial swordMaterial, GemstoneType gemstoneType){
-        this.swordMaterial = swordMaterial;
-        this.gemstoneType = gemstoneType;
+       this(swordMaterial,gemstoneType,30, 20);
 
     }
     public Sword(SwordMaterial swordMaterial){
-        this.swordMaterial = swordMaterial;
+        this(swordMaterial,null);
 
     }
 
     public Sword withMaterial(SwordMaterial swordMaterial){
-        return new Sword(swordMaterial);
+        return new Sword(swordMaterial,this.gemstoneType, this.length,this.crossguardWidth);
     }
 
     @Override

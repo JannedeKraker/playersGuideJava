@@ -1,5 +1,7 @@
 package playersguide.day39;
 
+import java.util.Scanner;
+
 public class GridOfRooms {
 
     private final String[][] gridOfRooms = {{"entrance", null, "fountain", null},
@@ -14,6 +16,8 @@ public class GridOfRooms {
     private int whichRoomAreWeRow;
     private int whichRoomAreWeColumn;
 
+    static Scanner keyboard = new Scanner(System.in);
+
     public String doSomethingAtTheRoom(String command) {
         switch (command) {
             case "exit":
@@ -24,34 +28,47 @@ public class GridOfRooms {
             case "fountain off":
                 fountain.setFountainState(false);
                 return "You hear a dripping sound.";
-            default: return " ";
+            default:
+                return " ";
         }
     }
 
-    public void movingInGrid(String move) {
+    public String getAnswer() {
+        String answer = keyboard.next();
+        return answer;
+    }
+
+    public String movingInGrid(String move) {
         switch (move) {
+            case "start": return getRoomCoordinates() + experienceRoom();
             case "north":
                 if (startRoomRow == whichRoomAreWeRow) {
-                    System.out.println(" if you go north, you leave the cavern, you can only leave the cavern by using the word exit.");
+                    return " if you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
                 } else whichRoomAreWeRow--;
-                break;
+                return getRoomCoordinates() + experienceRoom();
+
             case "east":
                 whichRoomAreWeColumn++;
-                break;
+                return getRoomCoordinates() + experienceRoom();
+
             case "south":
                 whichRoomAreWeRow++;
-                break;
+                return getRoomCoordinates() + experienceRoom();
+
             case "west":
                 if (startRoomColumn == whichRoomAreWeColumn) {
                     System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
                 }
                 whichRoomAreWeColumn--;
-                break;
+                return getRoomCoordinates() + experienceRoom();
+            default:
+                return " ";
+
         }
     }
 
     public String getRoomCoordinates() {
-        return "[" + whichRoomAreWeRow + "]" + "[" + whichRoomAreWeColumn + "]";
+        return "You are in room: [" + whichRoomAreWeRow + "]" + "[" + whichRoomAreWeColumn + "]";
     } // Wat is beter? met String naam of zonder?
 
     public String getRoomContents() {
@@ -64,10 +81,14 @@ public class GridOfRooms {
             case "null":
                 return "It is very quiet and dark here.";
             case "entrance":
-                return "light shines in from outside. You are at the entrance.";
+                if (fountain.getFountainState()) {
+                    return "You won!!";
+                } else {
+                    return "light shines in from outside. You are at the entrance.";
+                }
             case "fountain":
                 if (fountain.getFountainState()) {
-                    return "You hear water falling. you feel splashes on your cheek.";
+                    return "You feel splashes on your cheek. You hear the rushing waters from the Fountain of Objects. It has been reactivated!";
                 } else {
                     return "you hear a dripping sound";
                 }

@@ -6,7 +6,7 @@ public class Menu {
     static Scanner keyboard = new Scanner(System.in);
 
     public static String getSize() {
-        System.out.println("Wow big do you want the grid of rooms to be? (small, medium or large)");
+        System.out.println("How big do you want the grid of rooms to be? (small, medium or large)");
         return keyboard.nextLine().toLowerCase().trim();
     }
 

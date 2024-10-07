@@ -15,7 +15,12 @@ public class Grid {
 
     private int currentRow;
     private int currentColumn;
+
     boolean inGrid;
+
+    public String[][] getRooms() {
+        return rooms;
+    }
 
     public Grid(String size) {
         switch (size) {
@@ -30,6 +35,10 @@ public class Grid {
                 break;
         }
 
+    }
+
+    public boolean isCloseToPit() {
+        return false;
     }
 
     public String move(Choice choice) {
@@ -92,6 +101,7 @@ public class Grid {
         }
     }
 
+
     public String getRoomCoordinates() {
         return "You are in room: [" + currentRow + "]" + "[" + currentColumn + "]\n";
     }
@@ -108,18 +118,28 @@ public class Grid {
                 if (fountain.getFountainState()) {
                     return "You won!! The fountain of Objects has been put back into use.";
                 } else {
-                    return "light shines in from outside. You are at the entrance.";
+                    return "Light shines in from outside. You are at the entrance.";
                 }
             case "fountain":
                 if (fountain.getFountainState()) {
                     return "You feel splashes on your cheek. You hear the rushing waters from the Fountain of Objects. It has been reactivated!";
                 } else {
-                    return "you hear a dripping sound";
+                    return "You hear a dripping sound";
                 }
+            case "pit":
+                return "You are dead.";
             default:
                 return "we are lost";
 
         }
+    }
+
+    public int getCurrentRow() {
+        return currentRow;
+    }
+
+    public int getCurrentColumn() {
+        return currentColumn;
     }
 }
 

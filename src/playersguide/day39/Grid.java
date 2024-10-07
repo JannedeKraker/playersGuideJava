@@ -23,8 +23,8 @@ public class Grid {
         switch (choice) {
             case START:
                 return getRoomCoordinates() + experienceRoom();
-            case EXIT:
-                return "You feel the sun is shining, your eyes have to get used to the bright light";
+            case EXIT: if(getRoomContents().equals("entrance") ){return "You feel the sun is shining, your eyes have to get used to the bright light";}
+                return "you have to go to the entrance if you want to exit the grid.";
             case FOUNTAIN_ON:
                 fountain.setFountainState(true);
                 return "You hear water falling. you feel splashes on your cheek.";
@@ -34,19 +34,19 @@ public class Grid {
             case NORTH:
                 if (startRow == currentRow) {
                     return " if you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
-                } else currentRow--;
+                } else --currentRow;
                 return getRoomCoordinates() + experienceRoom();
             case EAST:
-                currentColumn++;
+                ++currentColumn;
                 return getRoomCoordinates() + experienceRoom();
             case SOUTH:
-                currentRow++;
+                ++currentRow;
                 return getRoomCoordinates() + experienceRoom();
             case WEST:
                 if (startColumn == currentColumn) {
                     System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
                 }
-                currentColumn--;
+                --currentColumn;
                 return getRoomCoordinates() + experienceRoom();
             default:
                 return "I don't understand your answer. ";
@@ -59,7 +59,7 @@ public class Grid {
     }
 
     public String getRoomContents() {
-        return rooms[currentRow][currentColumn].toString();
+        return rooms[currentRow][currentColumn];
     }
 
     public String experienceRoom() {

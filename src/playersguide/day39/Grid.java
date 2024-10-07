@@ -13,7 +13,9 @@ public class Grid {
     private Fountain fountain = new Fountain();
 
     private final int startRow = 0;
+
     private final int startColumn = 0;
+
     private int currentRow;
     private int currentColumn;
     boolean inGrid;
@@ -52,14 +54,14 @@ public class Grid {
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case EAST:
                 if (inGrid) {
-                    if (currentColumn != 3) {
+                    if (currentColumn != rooms.length-1) {
                         ++currentColumn;
                         return getRoomCoordinates() + experienceRoom();
                     } else return "If you go east, you clash to the wall, there is no door to another room";
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case SOUTH:
                 if (inGrid) {
-                    if (currentRow != 3) {
+                    if (currentRow != rooms[0].length-1) {
                         ++currentRow;
                         return getRoomCoordinates() + experienceRoom();
                     } else return "If you go south, you clash to the wall, there is no door to another room";
@@ -68,9 +70,9 @@ public class Grid {
                 if (inGrid) {
                     if (startColumn == currentColumn) {
                         System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
-                    }
-                    --currentColumn;
-                    return getRoomCoordinates() + experienceRoom();
+                    } else{
+                        --currentColumn;
+                    return getRoomCoordinates() + experienceRoom();}
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             default:
                 return "I don't understand your answer. ";

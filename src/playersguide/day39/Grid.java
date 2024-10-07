@@ -5,10 +5,7 @@ import static playersguide.day39.Choice.*;
 
 public class Grid {
 
-    private final String[][] rooms = {{"entrance", "empty", "fountain", "empty"},
-            {"empty", "empty", "empty", "empty"},
-            {"empty", "empty", "empty", "empty"},
-            {"empty", "empty", "empty", "empty"}};
+    private String[][] rooms;
 
     private Fountain fountain = new Fountain();
 
@@ -20,6 +17,20 @@ public class Grid {
     private int currentColumn;
     boolean inGrid;
 
+    public Grid(String size) {
+        switch (size) {
+            case "small":
+                this.rooms = new Rooms().getRoomsSmall();
+                break;
+            case "medium":
+                this.rooms = new Rooms().getRoomsMedium();
+                break;
+            case "large":
+                this.rooms = new Rooms().getRoomsLarge();
+                break;
+        }
+
+    }
 
     public String move(Choice choice) {
 
@@ -54,14 +65,14 @@ public class Grid {
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case EAST:
                 if (inGrid) {
-                    if (currentColumn != rooms.length-1) {
+                    if (currentColumn != rooms.length - 1) {
                         ++currentColumn;
                         return getRoomCoordinates() + experienceRoom();
                     } else return "If you go east, you clash to the wall, there is no door to another room";
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case SOUTH:
                 if (inGrid) {
-                    if (currentRow != rooms[0].length-1) {
+                    if (currentRow != rooms[0].length - 1) {
                         ++currentRow;
                         return getRoomCoordinates() + experienceRoom();
                     } else return "If you go south, you clash to the wall, there is no door to another room";
@@ -70,9 +81,10 @@ public class Grid {
                 if (inGrid) {
                     if (startColumn == currentColumn) {
                         System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
-                    } else{
+                    } else {
                         --currentColumn;
-                    return getRoomCoordinates() + experienceRoom();}
+                        return getRoomCoordinates() + experienceRoom();
+                    }
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             default:
                 return "I don't understand your answer. ";

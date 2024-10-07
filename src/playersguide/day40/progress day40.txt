@@ -1,0 +1,6 @@
+ Before the game begins, ask the player whether they want to play a small, medium, or large game.
+Create a 4×4 world if they choose a small world, a 6×6 world if they choose a medium world, and an
+8×8 world if they choose a large world.
+done
+- Pick an appropriate location for both the Fountain Room and the Entrance room.
+done

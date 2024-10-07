@@ -5,6 +5,11 @@ import java.util.Scanner;
 public class Menu {
     static Scanner keyboard = new Scanner(System.in);
 
+    public static String getSize() {
+        System.out.println("Wow big do you want the grid of rooms to be? (small, medium or large)");
+        return keyboard.nextLine().toLowerCase().trim();
+    }
+
     public static Choice getAction() {
 
         System.out.println("What do you want to do?");
@@ -35,10 +40,10 @@ public class Menu {
                 "If you have found the Fountain of Objects you must activate it to win.\n" +
                 "Once you have done that you must return to the entrance.\n" +
                 "If you succeed, you have won the game.\n" +
-                "The commands to move are:" + green + " north, east, south, west"+ normalColor + ".\n" +
-                "You can exit the entrance by typing:" + green + " exit"+ normalColor + ".\n" +
-                "To activate the fountain, type:" + green + " fountain on"+ normalColor + ".\nTo deactivate it, type:" + green + " fountain off"+ normalColor + ".\n" +
-                "If you want to start type:" + green + " start"+ normalColor + ".\n");
+                "The commands to move are:" + green + " north, east, south, west" + normalColor + ".\n" +
+                "You can exit the entrance by typing:" + green + " exit" + normalColor + ".\n" +
+                "To activate the fountain, type:" + green + " fountain on" + normalColor + ".\nTo deactivate it, type:" + green + " fountain off" + normalColor + ".\n" +
+                "If you want to start type:" + green + " start" + normalColor + ".\n");
 
     }
 }

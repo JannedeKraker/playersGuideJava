@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         String whereAreWe;
-        Grid grid = new Grid();
+        Grid grid = new Grid(Menu.getSize());
         Menu.showStartMenu();
         do {
             Choice choice = Menu.getAction();

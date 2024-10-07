@@ -16,38 +16,62 @@ public class Grid {
     private final int startColumn = 0;
     private int currentRow;
     private int currentColumn;
+    boolean inGrid;
 
 
-       public String move(Choice choice) {
+    public String move(Choice choice) {
 
         switch (choice) {
             case START:
+                inGrid = true;
                 return getRoomCoordinates() + experienceRoom();
-            case EXIT: if(getRoomContents().equals("entrance") ){return "You feel the sun is shining, your eyes have to get used to the bright light";}
-                return "you have to go to the entrance if you want to exit the grid.";
-            case FOUNTAIN_ON:
-                fountain.setFountainState(true);
-                return "You hear water falling. you feel splashes on your cheek.";
-            case FOUNTAIN_OFF:
-                fountain.setFountainState(false);
-                return "You hear a dripping sound.";
-            case NORTH:
-                if (startRow == currentRow) {
-                    return " if you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
-                } else --currentRow;
-                return getRoomCoordinates() + experienceRoom();
-            case EAST:
-                ++currentColumn;
-                return getRoomCoordinates() + experienceRoom();
-            case SOUTH:
-                ++currentRow;
-                return getRoomCoordinates() + experienceRoom();
-            case WEST:
-                if (startColumn == currentColumn) {
-                    System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
+            case EXIT:
+                if (getRoomContents().equals("entrance") && inGrid) {
+                    return "You feel the sun is shining, your eyes have to get used to the bright light";
+                } else if (inGrid) {
+                    return "you have to go to the entrance if you want to exit the grid.";
+                } else {
+                    return "You have to be in the grid if you want to exit the grid.";
                 }
-                --currentColumn;
-                return getRoomCoordinates() + experienceRoom();
+            case FOUNTAIN_ON:
+                if (inGrid && getRoomContents().equals("fountain")) {
+                    fountain.setFountainState(true);
+                    return "You hear water falling. you feel splashes on your cheek.";
+                } else return "You are not in the room with the fountain";
+            case FOUNTAIN_OFF:
+                if (inGrid && getRoomContents().equals("fountain")) {
+                    fountain.setFountainState(false);
+                    return "You hear a dripping sound.";
+                } else return "You are not in the room with the fountain";
+            case NORTH:
+                if (inGrid) {
+                    if (startRow == currentRow) {
+                        return "If you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
+                    } else --currentRow;
+                    return getRoomCoordinates() + experienceRoom();
+                } else return "You are not in the grid, you have to type start if you want to be in the grid.";
+            case EAST:
+                if (inGrid) {
+                    if (currentColumn != 3) {
+                        ++currentColumn;
+                        return getRoomCoordinates() + experienceRoom();
+                    } else return "If you go east, you clash to the wall, there is no door to another room";
+                } else return "You are not in the grid, you have to type start if you want to be in the grid.";
+            case SOUTH:
+                if (inGrid) {
+                    if (currentRow != 3) {
+                        ++currentRow;
+                        return getRoomCoordinates() + experienceRoom();
+                    } else return "If you go south, you clash to the wall, there is no door to another room";
+                } else return "You are not in the grid, you have to type start if you want to be in the grid.";
+            case WEST:
+                if (inGrid) {
+                    if (startColumn == currentColumn) {
+                        System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
+                    }
+                    --currentColumn;
+                    return getRoomCoordinates() + experienceRoom();
+                } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             default:
                 return "I don't understand your answer. ";
 

@@ -48,6 +48,7 @@ You are in the room at (Row=0, Column=0).
 The Fountain of Objects has been reactivated, and you have escaped with your life!
 You win!
 
--ik moet nog zorgen dat je nergens buiten de array kan komen.
+-ik moet nog zorgen dat je nergens buiten de array kan komen. done
 - ik moet nog zorgen dat je niet een andere actie kan doen als eerste dan starten, of start
-er helemaal uit laten.
+er helemaal uit laten. done
+- de fountain mag niet aan of uit gezet kunnen worden als je niet in de fountain room bent. done

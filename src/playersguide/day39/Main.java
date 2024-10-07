@@ -13,7 +13,7 @@ public class Main {
             whereAreWe = grid.move(choice);
             Menu.show(whereAreWe);
         }
-        while (!whereAreWe.equals("You feel the sun is shining, your eyes have to get used to the bright light"));
+        while (!whereAreWe.equals("You feel the sun is shining, your eyes have to get used to the bright light") && !whereAreWe.equals("You are dead."));
 
 //
 //

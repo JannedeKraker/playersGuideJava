@@ -15,7 +15,11 @@ public class Grid {
 
     private int currentRow;
     private int currentColumn;
+
+    private int pitRow;
+    private int pitColumn;
     boolean inGrid;
+    boolean pitDraft;
 
     public Grid(String size) {
         switch (size) {
@@ -29,6 +33,10 @@ public class Grid {
                 this.rooms = new Rooms().getRoomsLarge();
                 break;
         }
+
+    }
+
+    public boolean isPitDraft(){
 
     }
 
@@ -108,14 +116,15 @@ public class Grid {
                 if (fountain.getFountainState()) {
                     return "You won!! The fountain of Objects has been put back into use.";
                 } else {
-                    return "light shines in from outside. You are at the entrance.";
+                    return "Light shines in from outside. You are at the entrance.";
                 }
             case "fountain":
                 if (fountain.getFountainState()) {
                     return "You feel splashes on your cheek. You hear the rushing waters from the Fountain of Objects. It has been reactivated!";
                 } else {
-                    return "you hear a dripping sound";
+                    return "You hear a dripping sound";
                 }
+            case "pit": return "You are dead.";
             default:
                 return "we are lost";
 

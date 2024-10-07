@@ -1,24 +1,22 @@
 package playersguide.day39;
 
-import java.util.Scanner;
+public class Grid {
 
-public class GridOfRooms {
-
-    private final String[][] gridOfRooms = {{"entrance", null, "fountain", null},
+    private final String[][] rooms = {{"entrance", null, "fountain", null},
             {null, null, null, null},
             {null, null, null, null},
             {null, null, null, null}};
 
     private Fountain fountain = new Fountain();
 
-    private final int startRoomRow = 0;
-    private final int startRoomColumn = 0;
-    private int whichRoomAreWeRow;
-    private int whichRoomAreWeColumn;
+    private final int startRow = 0;
+    private final int startColumn = 0;
+    private int currentRow;
+    private int currentColumn;
 
-    static Scanner keyboard = new Scanner(System.in);
 
-    public String doSomethingAtTheRoom(String command) {
+
+    public String doSomething(String command) {
         switch (command) {
             case "exit":
                 return "You feel the sun is shining, your eyes have to get used to the bright light";
@@ -33,33 +31,30 @@ public class GridOfRooms {
         }
     }
 
-    public String getAnswer() {
-        String answer = keyboard.next();
-        return answer;
-    }
 
-    public String movingInGrid(String move) {
+
+    public String move(String move) {
         switch (move) {
-            case "start": return getRoomCoordinates() + experienceRoom();
-            case "north":
-                if (startRoomRow == whichRoomAreWeRow) {
-                    return " if you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
-                } else whichRoomAreWeRow--;
+            case "start":
                 return getRoomCoordinates() + experienceRoom();
-
+            case "north":
+                if (startRow == currentRow) {
+                    return " if you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
+                } else currentRow--;
+                return getRoomCoordinates() + experienceRoom();
             case "east":
-                whichRoomAreWeColumn++;
+                currentColumn++;
                 return getRoomCoordinates() + experienceRoom();
 
             case "south":
-                whichRoomAreWeRow++;
+                currentRow++;
                 return getRoomCoordinates() + experienceRoom();
 
             case "west":
-                if (startRoomColumn == whichRoomAreWeColumn) {
+                if (startColumn == currentColumn) {
                     System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
                 }
-                whichRoomAreWeColumn--;
+                currentColumn--;
                 return getRoomCoordinates() + experienceRoom();
             default:
                 return " ";
@@ -68,11 +63,11 @@ public class GridOfRooms {
     }
 
     public String getRoomCoordinates() {
-        return "You are in room: [" + whichRoomAreWeRow + "]" + "[" + whichRoomAreWeColumn + "]";
-    } // Wat is beter? met String naam of zonder?
+        return "You are in room: [" + currentRow + "]" + "[" + currentColumn + "]\n";
+    } // Wat is beter? met String naam of zonder: beter kort.
 
     public String getRoomContents() {
-        String roomContent = gridOfRooms[whichRoomAreWeRow][whichRoomAreWeColumn];
+        String roomContent = rooms[currentRow][currentColumn];
         return roomContent;
     } // Wat is beter? met String naam of zonder?
 

@@ -8,35 +8,37 @@ public class Menu {
     public static Choice getAction() {
 
         System.out.println("What do you want to do?");
-        String choice = keyboard.next();
-        switch (choice){
-            case "start": return Action.START;
-            case "exit": return Action.EXIT;
-            case "fountain on": return Action.FOUNTAIN_ON;
-            case "fountain off": return Action.FOUNTAIN_OFF;
-            case "north": return Move.NORTH;
-            case "east": return Move.EAST;
-            case "south": return Move.SOUTH;
-            case "west": return Move.WEST;
-            default: return null;
-        }
+        String choice = keyboard.nextLine().toLowerCase().trim();
+        return switch (choice) {
+            case "start" -> Choice.START;
+            case "exit" -> Choice.EXIT;
+            case "fountain on" -> Choice.FOUNTAIN_ON;
+            case "fountain off" -> Choice.FOUNTAIN_OFF;
+            case "north" -> Choice.NORTH;
+            case "east" -> Choice.EAST;
+            case "south" -> Choice.SOUTH;
+            case "west" -> Choice.WEST;
+            default -> Choice.NO_GOOD_ANSWER;
+        };
     }
 
-    public static void show(String string){
+    public static void show(String string) {
         System.out.println(string);
     }
 
     public static void showStartMenu() {
+        String green = "\u001B[32m";
+        String normalColor = "\u001B[0m";
         System.out.println("Welcome at the Fountain of Objects game.\n" +
-                "You can search in the grid of rooms for the fountain of Objects.\n " +
-                "Pay close attention because it is very dark.\n " +
-                "If you have found the Fountain of Objects you must activate it to win.\n " +
-                "Once you have done that you must return to the entrance.\n " +
-                "If you succeed, you have won the game.\n " +
-                "The commands to move are: north, east, south, west.\n " +
-                "You can exit the entrance by typing: exit.\n " +
-                "To activate the fountain, type on. and to deactivate it, type off.\n" +
-                "If you want to start typ start.");
+                "You can search in the grid of rooms for the fountain of Objects.\n" +
+                "Pay close attention because it is very dark.\n" +
+                "If you have found the Fountain of Objects you must activate it to win.\n" +
+                "Once you have done that you must return to the entrance.\n" +
+                "If you succeed, you have won the game.\n" +
+                "The commands to move are:" + green + " north, east, south, west"+ normalColor + ".\n" +
+                "You can exit the entrance by typing:" + green + " exit"+ normalColor + ".\n" +
+                "To activate the fountain, type:" + green + " fountain on"+ normalColor + ".\nTo deactivate it, type:" + green + " fountain off"+ normalColor + ".\n" +
+                "If you want to start type:" + green + " start"+ normalColor + ".\n");
 
     }
 }

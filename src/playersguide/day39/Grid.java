@@ -1,11 +1,14 @@
 package playersguide.day39;
 
+import static playersguide.day39.Choice.*;
+
+
 public class Grid {
 
-    private final String[][] rooms = {{"entrance", null, "fountain", null},
-            {null, null, null, null},
-            {null, null, null, null},
-            {null, null, null, null}};
+    private final String[][] rooms = {{"entrance", "empty", "fountain", "empty"},
+            {"empty", "empty", "empty", "empty"},
+            {"empty", "empty", "empty", "empty"},
+            {"empty", "empty", "empty", "empty"}};
 
     private Fountain fountain = new Fountain();
 
@@ -15,69 +18,57 @@ public class Grid {
     private int currentColumn;
 
 
+       public String move(Choice choice) {
 
-    public String doSomething(String command) {
-        switch (command) {
-            case "exit":
+        switch (choice) {
+            case START:
+                return getRoomCoordinates() + experienceRoom();
+            case EXIT:
                 return "You feel the sun is shining, your eyes have to get used to the bright light";
-            case "fountain on":
+            case FOUNTAIN_ON:
                 fountain.setFountainState(true);
                 return "You hear water falling. you feel splashes on your cheek.";
-            case "fountain off":
+            case FOUNTAIN_OFF:
                 fountain.setFountainState(false);
                 return "You hear a dripping sound.";
-            default:
-                return " ";
-        }
-    }
-
-
-
-    public String move(String move) {
-        switch (move) {
-            case "start":
-                return getRoomCoordinates() + experienceRoom();
-            case "north":
+            case NORTH:
                 if (startRow == currentRow) {
                     return " if you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
                 } else currentRow--;
                 return getRoomCoordinates() + experienceRoom();
-            case "east":
+            case EAST:
                 currentColumn++;
                 return getRoomCoordinates() + experienceRoom();
-
-            case "south":
+            case SOUTH:
                 currentRow++;
                 return getRoomCoordinates() + experienceRoom();
-
-            case "west":
+            case WEST:
                 if (startColumn == currentColumn) {
                     System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
                 }
                 currentColumn--;
                 return getRoomCoordinates() + experienceRoom();
             default:
-                return " ";
+                return "I don't understand your answer. ";
 
         }
     }
 
     public String getRoomCoordinates() {
         return "You are in room: [" + currentRow + "]" + "[" + currentColumn + "]\n";
-    } // Wat is beter? met String naam of zonder: beter kort.
+    }
 
     public String getRoomContents() {
-        String roomContent = rooms[currentRow][currentColumn];
-        return roomContent;
-    } // Wat is beter? met String naam of zonder?
+        return rooms[currentRow][currentColumn].toString();
+    }
 
     public String experienceRoom() {
         switch (getRoomContents()) {
-            case "null":
+            case "empty":
                 return "It is very quiet and dark here.";
             case "entrance":
                 if (fountain.getFountainState()) {
-                    return "You won!!";
+                    return "You won!! The fountain of Objects has been put back into use.";
                 } else {
                     return "light shines in from outside. You are at the entrance.";
                 }

@@ -1,7 +1,7 @@
  Before the game begins, ask the player whether they want to play a small, medium, or large game.
 Create a 4×4 world if they choose a small world, a 6×6 world if they choose a medium world, and an
 8×8 world if they choose a large world.
-done -> ik moet nog iets maken dat het spel niet stopt als ik small medium of large verkeerd typ, maar dat het nog een keer wordt gevraagd.
+done -> I still need to make something so that the game doesn't stop if I mistype small medium or large, but asks again. done.
 - Pick an appropriate location for both the Fountain Room and the Entrance room.
 done
 
@@ -9,46 +9,15 @@ done
 done
 - Players can sense the draft blowing out of pits in adjacent rooms (all eight directions): “You feel a
 draft. There is a pit in a nearby room.”
+
+-> ik heb een werkende methode gemaakt om te kijken of het een room is next to the pit, maar ik krijg die info nog niet terug naar
+the grid expierence. ik kan het natuurlijk ook in de array zelf zetten maar dat lijkt me niet de bedoeling...
+
 - If a player ends their turn in a room with a pit, they lose the game.
+done
+
 - Note: When combined with the Small, Medium, or Large challenge, add one pit to the 4×4 world,two
 pits to the 6×6 world, and four pits to the 8×8 world, in locations of your choice.
+ik heb wel meerdere pits er in gestopt maar ik weet nog niet hoe ik de methodes op meerdere pits kan toepassen.
 
-
-ik wil een boolean isCloseToPit() methode maken
-
-daar moet in gekeken worden waar de pit zit en wat de omliggende kamers zijn.
-
-een loop door rooms om de pit kamers vast te stellen
-hoe kan die info opgeslagen worden?
-
-Class Pit{
-int row;
-int column
-setRow
-setColumn
-getRow
-getColumn
-}
-
-als er meerdere Pits zijn meerdere objecten daarvan maken?
-waar moet dat opgeslagen worden?
-
-Class NextToPit{
-int row
-int column
-
-setRow
-setColumn
-getRow
-getColumn}
-
-hier moeten er acht van gemaakt worden, is dat dan handig om in een array te stoppen en die row en column dan te vergelijken.
-
-dan een berekening maken wat de omliggende kamers zijn
-waarin kan dat opgeslagen worden zodat het gecheckt kan worden?
-
-
-moet ik een Pit class maken waar wordt bijgehouden wat de omliggende kamers zijn en wat de pit kamer is?
-
-een pit array in rooms waar alle pits worden opgeslagen
-een roomNextToPit Array waar alle rooms er naast worden opgeslagen
+done

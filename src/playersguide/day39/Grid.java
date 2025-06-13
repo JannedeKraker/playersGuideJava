@@ -1,45 +1,75 @@
 package playersguide.day39;
 
-import static playersguide.day39.Choice.*;
 
+import java.util.ArrayList;
 
 public class Grid {
 
     private String[][] rooms;
-
+    private Player player = new Player();
     private Fountain fountain = new Fountain();
+    ArrayList<Maelstrom> maelstroms = new ArrayList<>();
+
+    private Maelstrom maelstromOne = new Maelstrom(); // TODO arrayList van maken
+    private Maelstrom maelstromTwo = new Maelstrom();
+    String gridSize;
 
     private final int startRow = 0;
 
     private final int startColumn = 0;
 
-    private int currentRow;
-    private int currentColumn;
-
     boolean inGrid;
 
-    public String[][] getRooms() {
-        return rooms;
-    }
 
     public Grid(String size) {
         switch (size) {
             case "small":
                 this.rooms = new Rooms().getRoomsSmall();
+                gridSize = size;
+                maelstromOne.setInGrid(size);
                 break;
             case "medium":
                 this.rooms = new Rooms().getRoomsMedium();
+                gridSize = size;
+                maelstromOne.setInGrid(size);
                 break;
             case "large":
                 this.rooms = new Rooms().getRoomsLarge();
+                gridSize = size;
+                maelstromOne.setInGrid(size);
+                maelstromTwo.setInGrid(size);
                 break;
         }
 
     }
 
+    private boolean isInGrid(Movable thing) {
+        return switch (gridSize) {
+            case "small" -> thing.currentRow <= 3 && thing.currentColumn <= 3;
+            case "medium" -> thing.currentRow <= 5 && thing.currentColumn <= 5;
+            case "large" -> thing.currentRow <= 7 && thing.currentColumn <= 7;
+            default -> false;
+        };
+    }
+
     public boolean isCloseToPit() {
+
+        int rowMin = Math.max(player.currentRow - 1, 0);
+        int rowMax = Math.min(player.currentRow + 1, rooms.length - 1);
+        int columnMin = Math.max(player.currentColumn - 1, 0);
+        int columnMax = Math.min(player.currentColumn + 1, rooms[0].length - 1);
+
+        for (int row = rowMin; row <= rowMax; row++) {
+            for (int column = columnMin; column <= columnMax; column++) {
+                boolean isCurrentRoom = row == player.currentRow && column == player.currentColumn;
+                if (!isCurrentRoom && rooms[row][column].equals("pit")) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
+
 
     public String move(Choice choice) {
 
@@ -49,6 +79,7 @@ public class Grid {
                 return getRoomCoordinates() + experienceRoom();
             case EXIT:
                 if (getRoomContents().equals("entrance") && inGrid) {
+                    Rooms.finished = true;
                     return "You feel the sun is shining, your eyes have to get used to the bright light";
                 } else if (inGrid) {
                     return "you have to go to the entrance if you want to exit the grid.";
@@ -67,31 +98,31 @@ public class Grid {
                 } else return "You are not in the room with the fountain";
             case NORTH:
                 if (inGrid) {
-                    if (startRow == currentRow) {
+                    if (startRow == player.currentRow) {
                         return "If you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
-                    } else --currentRow;
+                    } else --player.currentRow;
                     return getRoomCoordinates() + experienceRoom();
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case EAST:
                 if (inGrid) {
-                    if (currentColumn != rooms.length - 1) {
-                        ++currentColumn;
+                    if (player.currentColumn != rooms.length - 1) {
+                        ++player.currentColumn;
                         return getRoomCoordinates() + experienceRoom();
                     } else return "If you go east, you clash to the wall, there is no door to another room";
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case SOUTH:
                 if (inGrid) {
-                    if (currentRow != rooms[0].length - 1) {
-                        ++currentRow;
+                    if (player.currentRow != rooms[0].length - 1) {
+                        ++player.currentRow;
                         return getRoomCoordinates() + experienceRoom();
                     } else return "If you go south, you clash to the wall, there is no door to another room";
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case WEST:
                 if (inGrid) {
-                    if (startColumn == currentColumn) {
+                    if (startColumn == player.currentColumn) {
                         System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
                     } else {
-                        --currentColumn;
+                        --player.currentColumn;
                         return getRoomCoordinates() + experienceRoom();
                     }
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
@@ -103,43 +134,94 @@ public class Grid {
 
 
     public String getRoomCoordinates() {
-        return "You are in room: [" + currentRow + "]" + "[" + currentColumn + "]\n";
+        return "You are in room: [" + player.currentRow + "]" + "[" + player.currentColumn + "]\n";
     }
 
     public String getRoomContents() {
-        return rooms[currentRow][currentColumn];
+        return rooms[player.currentRow][player.currentColumn];
     }
 
     public String experienceRoom() {
+        String experience;
         switch (getRoomContents()) {
             case "empty":
-                return "It is very quiet and dark here.";
+                experience = "It is very quiet and dark here.";
+                break;
             case "entrance":
                 if (fountain.getFountainState()) {
-                    return "You won!! The fountain of Objects has been put back into use.";
+                    experience = "You won!! The fountain of Objects has been put back into use.";
+                    break;
                 } else {
-                    return "Light shines in from outside. You are at the entrance.";
+                    experience = "Light shines in from outside. You are at the entrance.";
+                    break;
                 }
             case "fountain":
                 if (fountain.getFountainState()) {
-                    return "You feel splashes on your cheek. You hear the rushing waters from the Fountain of Objects. It has been reactivated!";
+                    experience = "You feel splashes on your cheek. You hear the rushing waters from the Fountain of Objects. It has been reactivated!";
+                    break;
                 } else {
-                    return "You hear a dripping sound";
+                    experience = "You hear a dripping sound";
+                    break;
                 }
             case "pit":
+                Rooms.finished = true;
                 return "You are dead.";
             default:
                 return "we are lost";
+        }
+        if (isCloseToPit()) {
+            experience += "\nYou feel a draft. There is a pit in a nearby room.";
+        }
+        experience += getExperienceWithMaelstrom(experience);
+
+        //TODO methode maken om te kijken of er een maelstrom in een kamer is naast waar je bent
+        if (isCloseToMaelstrom()) {
+            experience += "\n You hear the growling and groaning of a maelstrom nearby.";
+        }
+
+        return experience;
+    }
+
+    private boolean isCloseToMaelstrom() {
+
+        return false;
+    }
+
+
+    private String getExperienceWithMaelstrom(String experience) {
+        if (gridSize.equals("large")) {
+            if (maelstromTwo.isAtRoomWithMaelstrom(player.currentRow, player.currentColumn)) {
+                player.currentRow--;
+                player.currentColumn += 2;
+                experience += "\nWaah, you get blown away by a maelstrom to another room.";
+                if (!isInGrid(player)) {
+                    player.setInGrid(gridSize);
+                    experience += "\nOops, you hit the outer walls of the grid and bounce into another room.";
+                }
+                if (!isInGrid(maelstromTwo)) {
+                    maelstromOne.setInGrid(gridSize);
+                }
+            }
+        }
+        if (maelstromOne.isAtRoomWithMaelstrom(player.currentRow, player.currentColumn)) {
+            player.currentRow--;
+            player.currentColumn += 2;
+            experience += "\nWaah, you get blown away by a maelstrom to another room.";
+            if (!isInGrid(player)) {
+                player.setInGrid(gridSize);
+                experience += "\nOops, you hit the outer walls of the grid and bounce into another room.";
+            }
+            if (!isInGrid(maelstromOne)) {
+                maelstromOne.setInGrid(gridSize);
+            }
+            experience += "\nYou are now in room: " + getRoomCoordinates();
 
         }
+        return experience;
     }
 
-    public int getCurrentRow() {
-        return currentRow;
-    }
-
-    public int getCurrentColumn() {
-        return currentColumn;
+    public void setInGrid(Movable thing) {
+        thing.setInGrid(gridSize);
     }
 }
 

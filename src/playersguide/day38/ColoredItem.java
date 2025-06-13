@@ -1,11 +1,11 @@
 package playersguide.day38;
 
 public class ColoredItem<T> {
-    T type;
+    T item;
     String color;
 
-    public ColoredItem(T type, String color) {
-        this.type = type;
+    public ColoredItem(T item, String color) {
+        this.item = item;
         switch (color) {
             case "blue":
                 this.color = "\u001B[34m";
@@ -27,7 +27,7 @@ public class ColoredItem<T> {
     }
 
     void display() {
-        System.out.println(color + type.toString() + "\u001B[0m");
+        System.out.println(color + item.toString() + "\u001B[0m");
     }
 
     ;

@@ -6,9 +6,19 @@ public class Menu {
     static Scanner keyboard = new Scanner(System.in);
 
     public static String getSize() {
+        String size = "";
+        boolean isNotGoodAnswer = true;
+
+        while(isNotGoodAnswer){
         System.out.println("How big do you want the grid of rooms to be? (small, medium or large)");
-        return keyboard.nextLine().toLowerCase().trim();
-    }
+        size = keyboard.nextLine().toLowerCase().trim();
+        if (size.equals("small") || size.equals("medium") || size.equals("large")){
+            isNotGoodAnswer = false;
+        }
+        else {
+            System.out.println("I don't understand what you want.");
+        }
+        }return size;}
 
     public static Choice getAction() {
 

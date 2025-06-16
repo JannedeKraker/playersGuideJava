@@ -1,6 +1,6 @@
 package playersguide.day39;
 
-public enum Choice {
+public enum Choice { // Keuzes die de de speler kan maken.
     START,
     EXIT,
     FOUNTAIN_ON,

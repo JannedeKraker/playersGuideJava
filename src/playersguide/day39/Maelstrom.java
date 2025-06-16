@@ -6,7 +6,13 @@ public class Maelstrom implements Movable {
 
     private int currentRow;
     private int currentColumn;
+public Maelstrom(String sizeGrid){
+    setInGrid(sizeGrid);
 
+}
+public void whereIsMaelstrom(){
+    System.out.println("Maelstrom is [" + currentRow + "," + currentColumn + "]");
+}
     @Override
     public int getCurrentRow() {
         return currentRow;
@@ -46,6 +52,7 @@ public class Maelstrom implements Movable {
     }
 
     public boolean hearingMaelstrom(int playerCurrentRow, int playerCurrentColumn) {
+    // hier worden alle kamers om de player heen gecontroleerd, maar ook de kamer van de player zelf. Dit is geen probleem omdat deze methode alleen gebruikt wordt als de methode isAtRoomWithMaelstrom() false is.
         return (playerCurrentRow++ == currentRow || playerCurrentRow-- == currentRow|| playerCurrentRow == currentRow) &&  (playerCurrentColumn++ == currentColumn || playerCurrentColumn-- == currentColumn|| playerCurrentColumn == currentColumn);
 
     }

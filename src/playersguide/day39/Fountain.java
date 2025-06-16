@@ -3,10 +3,11 @@ package playersguide.day39;
 public class Fountain {
     private boolean fountainState;
 
-    public void setFountainState(boolean fountainOnOrOff){
+    public void setFountainState(boolean fountainOnOrOff) {
         this.fountainState = fountainOnOrOff;
     }
-    public boolean getFountainState(){
+
+    public boolean getFountainState() {
         return fountainState;
     }
 

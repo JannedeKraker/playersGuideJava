@@ -10,8 +10,6 @@ public class Grid {
     private Fountain fountain = new Fountain();
     ArrayList<Maelstrom> maelstroms = new ArrayList<>();
 
-    private Maelstrom maelstromOne = new Maelstrom(); // TODO arrayList van maken
-    private Maelstrom maelstromTwo = new Maelstrom();
     String gridSize;
 
     private final int startRow = 0;
@@ -26,18 +24,18 @@ public class Grid {
             case "small":
                 this.rooms = new Rooms().getRoomsSmall();
                 gridSize = size;
-                maelstromOne.setInGrid(size);
+                maelstroms.add(new Maelstrom(size));
                 break;
             case "medium":
                 this.rooms = new Rooms().getRoomsMedium();
                 gridSize = size;
-                maelstromOne.setInGrid(size);
+                maelstroms.add(new Maelstrom(size));
                 break;
             case "large":
                 this.rooms = new Rooms().getRoomsLarge();
                 gridSize = size;
-                maelstromOne.setInGrid(size);
-                maelstromTwo.setInGrid(size);
+                maelstroms.add(new Maelstrom(size));
+                maelstroms.add(new Maelstrom(size));
                 break;
         }
 
@@ -53,16 +51,22 @@ public class Grid {
     }
 
     public boolean isCloseToPit() {
-
+        // hier bereken ik de laagste rij waar de pit in kan zitten, of 0 of hoger, door die 0 voorkom ik dat hij buiten de grid komt
         int rowMin = Math.max(player.getCurrentRow() - 1, 0);
+        // hier bereken ik de hoogste rij waar de pit kan zijn, door de length -1 kan hij niet buiten de grid komen want hij pakt de laagste waarde van die twee
         int rowMax = Math.min(player.getCurrentRow() + 1, rooms.length - 1);
+        // hier bereken op dezelfe manier als de rij de laagste column waar de pit kan zitten.
         int columnMin = Math.max(player.getCurrentColumn() - 1, 0);
+        // hier bereken ik op dezelfde manier als de rij waar de hoogste collumn waar de pit kan zitten, met als verschil dat deze de lengte heeft van de hoeveelheid columns
         int columnMax = Math.min(player.getCurrentColumn() + 1, rooms[0].length - 1);
 
+        // hier loopt hij door alle kamers om de pit heen en de kamer van de pit zelf.
         for (int row = rowMin; row <= rowMax; row++) {
             for (int column = columnMin; column <= columnMax; column++) {
-                boolean isCurrentRoom = row == player.getCurrentRow() && column == player.getCurrentColumn();
-                if (!isCurrentRoom && rooms[row][column].equals("pit")) {
+                // hier checkt hij of de combinatie van de row en de column dezelfde collumn en row zijn van waar de speler nu is.
+                boolean isPlayersRoom = row == player.getCurrentRow() && column == player.getCurrentColumn();
+                //hier checkt hij de combinatie van dat hij niet in de players kamer is maar wel of de kamer er omheen een pit is.
+                if (!isPlayersRoom && rooms[row][column].equals("pit")) {
                     return true;
                 }
             }
@@ -172,53 +176,40 @@ public class Grid {
         if (isCloseToPit()) {
             experience += "\nYou feel a draft. There is a pit in a nearby room.";
         }
-        experience += getExperienceWithMaelstrom(experience);
-
-        //TODO methode maken om te kijken of er een maelstrom in een kamer is naast waar je bent
-        if (isCloseToMaelstrom()) {
-            experience += "\n You hear the growling and groaning of a maelstrom nearby.";
+        for (Maelstrom maelstrom : maelstroms) {
+            maelstrom.whereIsMaelstrom();
         }
+        experience = getExperienceWithMaelstrom(experience);
 
         return experience;
     }
 
-    private boolean isCloseToMaelstrom() {
 
-        return false;
-    }
 
 
     private String getExperienceWithMaelstrom(String experience) {
-        if (gridSize.equals("large")) {
-            if (maelstromTwo.isAtRoomWithMaelstrom(player.getCurrentRow(), player.getCurrentColumn())) {
+        // checken of de maelstrom in dezelfde kamer is als de speler, zo ja dan wordt de speler weggeblazen zo niet dan checken of hij in een kamer er naast is en dat laten weten
+        for (Maelstrom maelstrom : maelstroms) {
+            //TODO de maelstrom moet ook nog verplaatst worden als de speler wordt weggeblazen
+            if (maelstrom.isAtRoomWithMaelstrom(player.getCurrentRow(), player.getCurrentColumn())) {
                 player.setCurrentRow(player.getCurrentRow() - 1);
                 player.setCurrentColumn(player.getCurrentColumn() + 2);
                 experience += "\nWaah, you get blown away by a maelstrom to another room.";
+                // of de speler nog wel in de grid geplaatst is. zo niet de speler opnieuw ergens willekeurig in de grid plaatem
                 if (!isInGrid(player)) {
                     player.setInGrid(gridSize);
                     experience += "\nOops, you hit the outer walls of the grid and bounce into another room.";
                 }
-                if (!isInGrid(maelstromTwo)) {
-                    maelstromOne.setInGrid(gridSize);
-                }
+                experience += "\nYou are now in room: " + getRoomCoordinates();
+            } // TODO de maelstrom kan ik nog niet in alle omliggende kamers horen, dus de hearingMaelstrom verbeteren
+            else if(maelstrom.hearingMaelstrom(player.getCurrentRow(), player.getCurrentColumn())){
+                experience += "\nYou hear the growling and groaning of a maelstrom nearby. Be careful not to get blown away. ";
             }
-        }
-        if (maelstromOne.isAtRoomWithMaelstrom(player.getCurrentRow(), player.getCurrentColumn())) {
-            player.setCurrentRow(player.getCurrentRow() - 1);
-            player.setCurrentColumn(player.getCurrentColumn() + 2);
-            experience += "\nWaah, you get blown away by a maelstrom to another room.";
-            if (!isInGrid(player)) {
-                player.setInGrid(gridSize);
-                experience += "\nOops, you hit the outer walls of the grid and bounce into another room.";
-            }
-            if (!isInGrid(maelstromOne)) {
-                maelstromOne.setInGrid(gridSize);
-            }
-            experience += "\nYou are now in room: " + getRoomCoordinates();
 
         }
         return experience;
     }
+
 
     public void setInGrid(Movable thing) {
         thing.setInGrid(gridSize);

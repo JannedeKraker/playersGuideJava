@@ -3,8 +3,29 @@ package playersguide.day39;
 import java.util.Random;
 
 public class Maelstrom implements Movable {
-    int currentRow;
-    int currentColumn;
+
+    private int currentRow;
+    private int currentColumn;
+
+    @Override
+    public int getCurrentRow() {
+        return currentRow;
+    }
+
+    @Override
+    public void setCurrentRow(int currentRow) {
+        this.currentRow = currentRow;
+    }
+
+    @Override
+    public int getCurrentColumn() {
+        return currentColumn;
+    }
+
+    @Override
+    public void setCurrentColumn(int currentColumn) {
+        this.currentColumn = currentColumn;
+    }
 
     public void setInGrid(String sizeGrid) {
         Random random = new Random();

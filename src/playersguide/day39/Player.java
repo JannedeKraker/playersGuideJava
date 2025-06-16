@@ -3,8 +3,8 @@ package playersguide.day39;
 import java.util.Random;
 
 public class Player implements Movable {
-    int currentRow;
-    int currentColumn;
+    private int currentRow;
+   private int currentColumn;
     public void setInGrid(String sizeGrid) {
         Random random = new Random();
         if (sizeGrid.equals("small")) {

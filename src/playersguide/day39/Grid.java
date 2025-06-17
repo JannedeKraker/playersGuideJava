@@ -202,7 +202,7 @@ public class Grid {
                 }
                 experience += "\nYou are now in room: " + getRoomCoordinates();
             } // TODO de maelstrom kan ik nog niet in alle omliggende kamers horen, dus de hearingMaelstrom verbeteren
-            else if(maelstrom.hearingMaelstrom(player.getCurrentRow(), player.getCurrentColumn())){
+            else if(maelstrom.hearingMaelstrom(player.getCurrentRow(), player.getCurrentColumn(),rooms)){
                 experience += "\nYou hear the growling and groaning of a maelstrom nearby. Be careful not to get blown away. ";
             }
 

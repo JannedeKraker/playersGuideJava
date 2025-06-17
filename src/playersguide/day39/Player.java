@@ -18,6 +18,13 @@ public class Player implements Movable {
             currentColumn = random.nextInt(8);
         }
     }
+
+    @Override
+    public void move() {
+        currentRow--;
+        currentColumn += 2;
+                   }
+
     public int getCurrentColumn() {
         return currentColumn;
     }

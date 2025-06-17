@@ -169,7 +169,7 @@ public class Grid {
                 }
             case "pit":
                 Rooms.finished = true;
-                return "You are dead.";
+                return "oh no! You fell into a very deep pit. You can't continue your mission to turn on the fountain. When you are better, will you come and continue your mission?!";
             default:
                 return "we are lost";
         }
@@ -185,27 +185,25 @@ public class Grid {
     }
 
 
-
-
     private String getExperienceWithMaelstrom(String experience) {
         // checken of de maelstrom in dezelfde kamer is als de speler, zo ja dan wordt de speler weggeblazen zo niet dan checken of hij in een kamer er naast is en dat laten weten
         for (Maelstrom maelstrom : maelstroms) {
-            //TODO de maelstrom moet ook nog verplaatst worden als de speler wordt weggeblazen
             if (maelstrom.isAtRoomWithMaelstrom(player.getCurrentRow(), player.getCurrentColumn())) {
-                player.setCurrentRow(player.getCurrentRow() - 1);
-                player.setCurrentColumn(player.getCurrentColumn() + 2);
+                player.move();
+                maelstrom.move();
                 experience += "\nWaah, you get blown away by a maelstrom to another room.";
                 // of de speler nog wel in de grid geplaatst is. zo niet de speler opnieuw ergens willekeurig in de grid plaatem
                 if (!isInGrid(player)) {
                     player.setInGrid(gridSize);
                     experience += "\nOops, you hit the outer walls of the grid and bounce into another room.";
                 }
-                experience += "\nYou are now in room: " + getRoomCoordinates();
-            } // TODO de maelstrom kan ik nog niet in alle omliggende kamers horen, dus de hearingMaelstrom verbeteren
-            else if(maelstrom.hearingMaelstrom(player.getCurrentRow(), player.getCurrentColumn(),rooms)){
+                if (!isInGrid(maelstrom)) {
+                    maelstrom.setInGrid(gridSize);
+                }
+                experience += "\n" + getRoomCoordinates();
+            } else if (maelstrom.hearingMaelstrom(player.getCurrentRow(), player.getCurrentColumn(), rooms)) {
                 experience += "\nYou hear the growling and groaning of a maelstrom nearby. Be careful not to get blown away. ";
             }
-
         }
         return experience;
     }

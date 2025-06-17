@@ -11,7 +11,10 @@ public class Maelstrom implements Movable {
         setInGrid(sizeGrid);
 
     }
-
+    public void move() {
+        currentRow++;
+        currentColumn -= 2;
+    }
     public void whereIsMaelstrom() {
         System.out.println("Maelstrom is [" + currentRow + "," + currentColumn + "]");
     }

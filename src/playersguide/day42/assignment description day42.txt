@@ -12,7 +12,7 @@ Modify the basic Fountain of Objects game as described below.
 room in the small 4×4 world. --done
 - When a player is in one of the eight spaces adjacent to an amarok, a message should be displayed
 when sensing surroundings that indicate that the player can smell the amarok nearby. For example,
-“You can smell the rotten stench of an amarok in a nearby room.”
+“You can smell the rotten stench of an amarok in a nearby room.” -- done
 - When a player enters a room with an amarok, the player dies and loses the game. -- done
 - Note: When combined with the Small, Medium, or Large challenge, place two amaroks in the medium
 level and three in the large level in locations of your choosing. -- done

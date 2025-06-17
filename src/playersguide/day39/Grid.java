@@ -43,14 +43,17 @@ public class Grid {
 
     private boolean isInGrid(Movable thing) {
         return switch (gridSize) {
-            case "small" -> thing.getCurrentRow() <= 3 & thing.getCurrentColumn() <= 3;
-            case "medium" -> thing.getCurrentRow() <= 5 & thing.getCurrentColumn() <= 5;
-            case "large" -> thing.getCurrentRow() <= 7 & thing.getCurrentColumn() <= 7;
+            case "small" ->
+                    (thing.getCurrentRow() <= 3 & thing.getCurrentColumn() <= 3) & (thing.getCurrentRow() >= 0 & thing.getCurrentColumn() >= 0);
+            case "medium" ->
+                    (thing.getCurrentRow() <= 5 & thing.getCurrentColumn() <= 5) & (thing.getCurrentRow() >= 0 & thing.getCurrentColumn() >= 0);
+            case "large" ->
+                    (thing.getCurrentRow() <= 7 & thing.getCurrentColumn() <= 7) & (thing.getCurrentRow() >= 0 & thing.getCurrentColumn() >= 0);
             default -> false;
         };
     }
 
-    public boolean isCloseToPit() {
+    public boolean isCloseTo(String thing) {
         // hier bereken ik de laagste rij waar de pit in kan zitten, of 0 of hoger, door die 0 voorkom ik dat hij buiten de grid komt
         int rowMin = Math.max(player.getCurrentRow() - 1, 0);
         // hier bereken ik de hoogste rij waar de pit kan zijn, door de length -1 kan hij niet buiten de grid komen want hij pakt de laagste waarde van die twee
@@ -66,7 +69,7 @@ public class Grid {
                 // hier checkt hij of de combinatie van de row en de column dezelfde collumn en row zijn van waar de speler nu is.
                 boolean isPlayersRoom = row == player.getCurrentRow() && column == player.getCurrentColumn();
                 //hier checkt hij de combinatie van dat hij niet in de players kamer is maar wel of de kamer er omheen een pit is.
-                if (!isPlayersRoom && rooms[row][column].equals("pit")) {
+                if (!isPlayersRoom && rooms[row][column].equals(thing)) {
                     return true;
                 }
             }
@@ -176,11 +179,11 @@ public class Grid {
             default:
                 return "we are lost";
         }
-        if (isCloseToPit()) {
+        if (isCloseTo("pit")) {
             experience += "\nYou feel a draft. There is a pit in a nearby room.";
         }
-        for (Maelstrom maelstrom : maelstroms) {
-            maelstrom.whereIsMaelstrom();
+        if (isCloseTo("amarok")) {
+            experience += "\nYou can smell the rotten stench of an amarok in a nearby room.";
         }
         experience = getExperienceWithMaelstrom(experience);
 
@@ -195,11 +198,12 @@ public class Grid {
                 player.move();
                 maelstrom.move();
                 experience += "\nWaah, you get blown away by a maelstrom to another room.";
-                // of de speler nog wel in de grid geplaatst is. zo niet de speler opnieuw ergens willekeurig in de grid plaatem
+                // of de speler nog wel in de grid geplaatst is. zo niet de speler opnieuw ergens willekeurig in de grid plaatsen.
                 if (!isInGrid(player)) {
                     player.setInGrid(gridSize);
                     experience += "\nOops, you hit the outer walls of the grid and bounce into another room.";
                 }
+                // of de maelstrom nog wel in de grid geplaatst is. zo niet de speler opnieuw ergens willekeurig in de grid plaatse
                 if (!isInGrid(maelstrom)) {
                     maelstrom.setInGrid(gridSize);
                 }

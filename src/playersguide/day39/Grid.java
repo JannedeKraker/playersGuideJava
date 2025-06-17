@@ -108,20 +108,20 @@ public class Grid {
                     if (startRow == player.getCurrentRow()) {
                         return "If you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
                     } else player.setCurrentRow(player.getCurrentRow() - 1);
-                    return getRoomCoordinates() + experienceRoom();
+                    return  experienceRoom() + getRoomCoordinates();
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case EAST:
                 if (inGrid) {
                     if (player.getCurrentColumn() != rooms.length - 1) {
                         player.setCurrentColumn(player.getCurrentColumn() + 1);
-                        return getRoomCoordinates() + experienceRoom();
+                        return  experienceRoom() + getRoomCoordinates();
                     } else return "If you go east, you clash to the wall, there is no door to another room";
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case SOUTH:
                 if (inGrid) {
                     if (player.getCurrentRow() != rooms[0].length - 1) {
                         player.setCurrentRow(player.getCurrentRow() + 1);
-                        return getRoomCoordinates() + experienceRoom();
+                        return  experienceRoom() + getRoomCoordinates();
                     } else return "If you go south, you clash to the wall, there is no door to another room";
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case WEST:
@@ -130,7 +130,7 @@ public class Grid {
                         System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
                     } else {
                         player.setCurrentColumn(player.getCurrentColumn() - 1);
-                        return getRoomCoordinates() + experienceRoom();
+                        return  experienceRoom() + getRoomCoordinates();
                     }
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             default:
@@ -141,7 +141,7 @@ public class Grid {
 
 
     public String getRoomCoordinates() {
-        return "You are in room: [" + player.getCurrentRow() + "]" + "[" + player.getCurrentColumn() + "]\n";
+        return "\nYou are in room: [" + player.getCurrentRow() + "]" + "[" + player.getCurrentColumn() + "]\n";
     }
 
     public String getRoomContents() {
@@ -202,12 +202,13 @@ public class Grid {
                 if (!isInGrid(player)) {
                     player.setInGrid(gridSize);
                     experience += "\nOops, you hit the outer walls of the grid and bounce into another room.";
+                    experience += "\n" + getRoomCoordinates();
                 }
                 // of de maelstrom nog wel in de grid geplaatst is. zo niet de speler opnieuw ergens willekeurig in de grid plaatse
                 if (!isInGrid(maelstrom)) {
                     maelstrom.setInGrid(gridSize);
                 }
-                experience += "\n" + getRoomCoordinates();
+
             } else if (maelstrom.hearingMaelstrom(player.getCurrentRow(), player.getCurrentColumn(), rooms)) {
                 experience += "\nYou hear the growling and groaning of a maelstrom nearby. Be careful not to get blown away. ";
             }

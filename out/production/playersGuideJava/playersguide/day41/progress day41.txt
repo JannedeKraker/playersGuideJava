@@ -1,12 +1,13 @@
 - Add a maelstrom to the small 4×4 game in a location of your choice.
 
 - The player can sense maelstroms by hearing them in adjacent rooms. (“You hear the growling and
-groaning of a maelstrom nearby.”)
+groaning of a maelstrom nearby.”) --done
 
-- If a player enters a room with a maelstrom, the player moves one space north and two spaces east,
-while the maelstrom moves one space south and two spaces west. When the player is moved like
+- If a player enters a room with a maelstrom, the player moves one space north and two spaces east, --done
+
+while the maelstrom moves one space south and two spaces west. When the player is moved like --done
 this, tell them so. If this would move the player or maelstrom beyond the map’s edge, ensure they
-stay on the map. (Clamp them to the map, wrap around to the other side, or any other strategy. ) --> ik denk dat ik hem dan ergens random laat neer komen in de grid, de player en de maelstrom.
+stay on the map. (Clamp them to the map, wrap around to the other side, or any other strategy. ) --> ik laat hem dan ergens random neer komen in de grid, de player en de maelstrom. --done
 
 - Note: When combined with the Small, Medium, or Large challenge, place one maelstrom into the
-medium-sized game and two into the large-sized game.
+medium-sized game and two into the large-sized game. -- done

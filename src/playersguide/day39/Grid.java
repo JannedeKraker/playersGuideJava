@@ -170,6 +170,9 @@ public class Grid {
             case "pit":
                 Rooms.finished = true;
                 return "oh no! You fell into a very deep pit. You can't continue your mission to turn on the fountain. When you are better, will you come and continue your mission?!";
+            case "amarok":
+                Rooms.finished = true;
+                return "Aaaah!! you are looking into the mouth of an amarok. A giant, rotting, wolf-like creature. Sadly, this is the last thing you see in your life. You are dead.";
             default:
                 return "we are lost";
         }

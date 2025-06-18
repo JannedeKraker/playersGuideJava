@@ -9,16 +9,17 @@ public class Menu {
         String size = "";
         boolean isNotGoodAnswer = true;
 
-        while(isNotGoodAnswer){
-        System.out.println("How big do you want the grid of rooms to be? (small, medium or large)");
-        size = keyboard.nextLine().toLowerCase().trim();
-        if (size.equals("small") || size.equals("medium") || size.equals("large")){
-            isNotGoodAnswer = false;
+        while (isNotGoodAnswer) {
+            System.out.println("How big do you want the grid of rooms to be? (small, medium or large)");
+            size = keyboard.nextLine().toLowerCase().trim();
+            if (size.equals("small") || size.equals("medium") || size.equals("large")) {
+                isNotGoodAnswer = false;
+            } else {
+                System.out.println("I don't understand what you want.");
+            }
         }
-        else {
-            System.out.println("I don't understand what you want.");
-        }
-        }return size;}
+        return size;
+    }
 
     public static Choice getAction() {
 
@@ -33,6 +34,10 @@ public class Menu {
             case "east" -> Choice.EAST;
             case "south" -> Choice.SOUTH;
             case "west" -> Choice.WEST;
+            case "shoot north" -> Choice.SHOOT_NORTH;
+            case "shoot east" -> Choice.SHOOT_EAST;
+            case "shoot south" -> Choice.SHOOT_SOUTH;
+            case "shoot west" -> Choice.SHOOT_WEST;
             default -> Choice.NO_GOOD_ANSWER;
         };
     }
@@ -53,6 +58,8 @@ public class Menu {
                 "The commands to move are:" + green + " north, east, south, west" + normalColor + ".\n" +
                 "You can exit the entrance by typing:" + green + " exit" + normalColor + ".\n" +
                 "To activate the fountain, type:" + green + " fountain on" + normalColor + ".\nTo deactivate it, type:" + green + " fountain off" + normalColor + ".\n" +
+                "You have a bow and five arrows, you can shoot arrows into rooms around you with these commands:" + green + " shoot north, shoot east, shoot south, shoot west" + normalColor + ".\n" +
+                "If a monster is in that room, it is killed" + ".\n" +
                 "If you want to start type:" + green + " start" + normalColor + ".\n");
 
     }

@@ -9,9 +9,11 @@ public enum Choice { // Keuzes die de de speler kan maken.
     EAST,
     SOUTH,
     WEST,
-    NO_GOOD_ANSWER
+    NO_GOOD_ANSWER,
+    SHOOT_NORTH,
+    SHOOT_EAST,
 
+    SHOOT_SOUTH,
 
-
-
+    SHOOT_WEST,
 }

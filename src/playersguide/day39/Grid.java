@@ -108,20 +108,20 @@ public class Grid {
                     if (startRow == player.getCurrentRow()) {
                         return "If you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
                     } else player.setCurrentRow(player.getCurrentRow() - 1);
-                    return  experienceRoom() + getRoomCoordinates();
+                    return experienceRoom() + getRoomCoordinates();
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case EAST:
                 if (inGrid) {
                     if (player.getCurrentColumn() != rooms.length - 1) {
                         player.setCurrentColumn(player.getCurrentColumn() + 1);
-                        return  experienceRoom() + getRoomCoordinates();
+                        return experienceRoom() + getRoomCoordinates();
                     } else return "If you go east, you clash to the wall, there is no door to another room";
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case SOUTH:
                 if (inGrid) {
                     if (player.getCurrentRow() != rooms[0].length - 1) {
                         player.setCurrentRow(player.getCurrentRow() + 1);
-                        return  experienceRoom() + getRoomCoordinates();
+                        return experienceRoom() + getRoomCoordinates();
                     } else return "If you go south, you clash to the wall, there is no door to another room";
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case WEST:
@@ -130,9 +130,25 @@ public class Grid {
                         System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
                     } else {
                         player.setCurrentColumn(player.getCurrentColumn() - 1);
-                        return  experienceRoom() + getRoomCoordinates();
+                        return experienceRoom() + getRoomCoordinates();
                     }
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
+            case SHOOT_NORTH:
+            case SHOOT_EAST:
+            case SHOOT_SOUTH:
+            case SHOOT_WEST:
+                //TODO maak de methode boolean isThereAMonster()
+                if (isThereAMonster()) {
+                    //TODO maak de methode String killTheMonster()
+                    String monster = killTheMonster();
+                    //TODO geef de player 5 pijlen en maak een getter en setter daarvoor
+                    //TODO zorg dat er een groep komt waar alle monsters onder vallen want waarschijnlijk komen er meer dan 1
+                    player.setArrows(-1);
+                    return "You have killed " + monster;
+                } else {
+                    player.setArrows(-1);
+                    return "Your arrow hits the wall. There is no monster in that room.";
+                }
             default:
                 return "I don't understand your answer. ";
 

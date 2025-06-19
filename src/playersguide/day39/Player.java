@@ -53,4 +53,14 @@ public class Player implements Movable {
     public boolean areThereArrows(){
         return arrows >= 1;
     }
+
+    public int getArrows() {
+        return arrows;
+    }
+    public void setArrows(int arrows) {
+        this.arrows += arrows;
+    }
+    public boolean areThereArrows(){
+        return arrows >= 1;
+    }
 }

@@ -3,8 +3,11 @@ package playersguide.day39;
 import java.util.Random;
 
 public class Player implements Movable {
+
+    private int arrows = 5;
     private int currentRow;
-   private int currentColumn;
+    private int currentColumn;
+
     public void setInGrid(String sizeGrid) {
         Random random = new Random();
         if (sizeGrid.equals("small")) {
@@ -23,14 +26,14 @@ public class Player implements Movable {
     public void move() {
         currentRow--;
         currentColumn += 2;
-                   }
+    }
 
     public int getCurrentColumn() {
         return currentColumn;
     }
 
     public void setCurrentColumn(int currentColumn) {
-        this.currentColumn = currentColumn;
+        this.currentColumn += currentColumn;
     }
 
     public int getCurrentRow() {
@@ -38,6 +41,16 @@ public class Player implements Movable {
     }
 
     public void setCurrentRow(int currentRow) {
-        this.currentRow = currentRow;
+        this.currentRow += currentRow;
+    }
+
+    public int getArrows() {
+        return arrows;
+    }
+    public void setArrows(int arrows) {
+        this.arrows += arrows;
+    }
+    public boolean areThereArrows(){
+        return arrows >= 1;
     }
 }

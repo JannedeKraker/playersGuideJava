@@ -25,7 +25,7 @@ the rooms around them, and if they hit a monster, they kill it, and it should no
 **Objectives**:
 
 - Add the following commands that allow a player to shoot in any of the four directions: shoot north,
-shoot east, shoot south, and shoot west.When the player shoots in one of the four directions, an arrow
+shoot east, shoot south, and shoot west. When the player shoots in one of the four directions, an arrow
 is fired into the room in that direction. If a monster is in that room, it is killed and should not affect
 the game anymore. They can no longer sense it, and it should not affect the player.
 - The player only has five arrows and cannot shoot when they are out of arrows. Display the number

@@ -123,20 +123,20 @@ public class Grid {
                 if (inGrid) {
                     if (startRow == player.getCurrentRow()) {
                         return "If you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
-                    } else player.setCurrentRow(player.getCurrentRow() - 1);
+                    } else player.setCurrentRow(-1);
                     return experienceRoom() + getRoomCoordinates();
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case EAST:
                 if (inGrid) {
                     if (player.getCurrentColumn() != rooms.length - 1) {
-                        player.setCurrentColumn(player.getCurrentColumn() + 1);
+                        player.setCurrentColumn(+1);
                         return experienceRoom() + getRoomCoordinates();
                     } else return "If you go east, you clash to the wall, there is no door to another room";
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
             case SOUTH:
                 if (inGrid) {
                     if (player.getCurrentRow() != rooms[0].length - 1) {
-                        player.setCurrentRow(player.getCurrentRow() + 1);
+                        player.setCurrentRow(+1);
                         return experienceRoom() + getRoomCoordinates();
                     } else return "If you go south, you clash to the wall, there is no door to another room";
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
@@ -145,7 +145,7 @@ public class Grid {
                     if (startColumn == player.getCurrentColumn()) {
                         System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
                     } else {
-                        player.setCurrentColumn(player.getCurrentColumn() - 1);
+                        player.setCurrentColumn(-1);
                         return experienceRoom() + getRoomCoordinates();
                     }
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
@@ -153,16 +153,16 @@ public class Grid {
             case SHOOT_EAST: // column + 1
             case SHOOT_SOUTH: // row + 1
             case SHOOT_WEST: // column - 1
-                if (isThereAMonster(choice)) {
-                    String monster = killTheMonster();
-                    //TODO geef de player 5 pijlen en maak een getter en setter daarvoor
-                    //TODO zorg dat er een groep komt waar alle monsters onder vallen want waarschijnlijk komen er meer dan 1
-                    player.setArrows(-1);
-                    return "You have killed " + monster;
-                } else {
-                    player.setArrows(-1);
-                    return "Your arrow hits the wall. There is no monster in that room.";
-                }
+                if (player.areThereArrows()) {
+                    if (isThereAMonster(choice)) {
+                        String monster = killTheMonster();
+                        player.setArrows(-1);
+                        return "You have killed " + monster;
+                    } else {
+                        player.setArrows(-1);
+                        return "Your arrow hits the wall. There is no monster in that room.";
+                    }
+                } else return "You can't shoot anymore. You're out of arrows.";
             default:
                 return "I don't understand your answer. ";
 
@@ -176,12 +176,16 @@ public class Grid {
         switch (choice) {
             case SHOOT_NORTH:
                 shotRoomRow--;// row - 1
+                break;
             case SHOOT_EAST:
                 shotRoomColumn++;// column + 1
+                break;
             case SHOOT_SOUTH:
                 shotRoomRow++; // row + 1
+                break;
             case SHOOT_WEST:
                 shotRoomColumn--; // column - 1
+                break;
         }
         for (Monster monster : monsters) {
             if (monster.isMonsterAtRoom(shotRoomRow, shotRoomColumn, rooms)) {

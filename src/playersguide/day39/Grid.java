@@ -153,16 +153,16 @@ public class Grid {
             case SHOOT_EAST: // column + 1
             case SHOOT_SOUTH: // row + 1
             case SHOOT_WEST: // column - 1
-                if (isThereAMonster(choice)) {
-                    String monster = killTheMonster();
-                    //TODO geef de player 5 pijlen en maak een getter en setter daarvoor
-                    //TODO zorg dat er een groep komt waar alle monsters onder vallen want waarschijnlijk komen er meer dan 1
-                    player.setArrows(-1);
-                    return "You have killed " + monster;
-                } else {
-                    player.setArrows(-1);
-                    return "Your arrow hits the wall. There is no monster in that room.";
-                }
+                if (player.areThereArrows()) {
+                    if (isThereAMonster(choice)) {
+                        String monster = killTheMonster();
+                        player.setArrows(-1);
+                        return "You have killed " + monster;
+                    } else {
+                        player.setArrows(-1);
+                        return "Your arrow hits the wall. There is no monster in that room.";
+                    }
+                } else return "You can't shoot anymore. You're out of arrows.";
             default:
                 return "I don't understand your answer. ";
 

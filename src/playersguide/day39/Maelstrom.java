@@ -2,7 +2,7 @@ package playersguide.day39;
 
 import java.util.Random;
 
-public class Maelstrom implements Movable {
+public class Maelstrom extends Monster implements Movable {
 
     private int currentRow;
     private int currentColumn;
@@ -11,9 +11,13 @@ public class Maelstrom implements Movable {
         setInGrid(sizeGrid);
 
     }
+
     public void move() {
         currentRow++;
         currentColumn -= 2;
+    }
+    boolean isMonsterAtRoom(int shotRoomRow, int shotRoomColumn, String[][] rooms){
+        return currentRow == shotRoomRow & currentColumn == shotRoomColumn;
     }
     public void whereIsMaelstrom() {
         System.out.println("Maelstrom is [" + currentRow + "," + currentColumn + "]");

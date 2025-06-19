@@ -8,7 +8,9 @@ public class Grid {
     private String[][] rooms;
     private Player player = new Player();
     private Fountain fountain = new Fountain();
+    ArrayList<Monster> monsters = new ArrayList<>();
     ArrayList<Maelstrom> maelstroms = new ArrayList<>();
+
 
     String gridSize;
 
@@ -20,22 +22,32 @@ public class Grid {
 
 
     public Grid(String size) {
+        Maelstrom maelstrom = new Maelstrom(size);
+        Maelstrom maelstrom2 = new Maelstrom(size);
+        Amarok amarok = new Amarok();
         switch (size) {
             case "small":
                 this.rooms = new Rooms().getRoomsSmall();
                 gridSize = size;
-                maelstroms.add(new Maelstrom(size));
+                maelstroms.add(maelstrom);
+                monsters.add(maelstrom);
+                monsters.add(amarok);
                 break;
             case "medium":
                 this.rooms = new Rooms().getRoomsMedium();
                 gridSize = size;
-                maelstroms.add(new Maelstrom(size));
+                maelstroms.add(maelstrom);
+                monsters.add(maelstrom);
+                monsters.add(amarok);
                 break;
             case "large":
                 this.rooms = new Rooms().getRoomsLarge();
                 gridSize = size;
-                maelstroms.add(new Maelstrom(size));
-                maelstroms.add(new Maelstrom(size));
+                maelstroms.add(maelstrom);
+                maelstroms.add(maelstrom2);
+                monsters.add(maelstrom);
+                monsters.add(maelstrom2);
+                monsters.add(amarok);
                 break;
         }
 
@@ -77,6 +89,10 @@ public class Grid {
         return false;
     }
 
+
+    public String[][] getRooms() {
+        return rooms;
+    }
 
     public String move(Choice choice) {
 
@@ -133,13 +149,11 @@ public class Grid {
                         return experienceRoom() + getRoomCoordinates();
                     }
                 } else return "You are not in the grid, you have to type start if you want to be in the grid.";
-            case SHOOT_NORTH:
-            case SHOOT_EAST:
-            case SHOOT_SOUTH:
-            case SHOOT_WEST:
-                //TODO maak de methode boolean isThereAMonster()
-                if (isThereAMonster()) {
-                    //TODO maak de methode String killTheMonster()
+            case SHOOT_NORTH: // row - 1
+            case SHOOT_EAST: // column + 1
+            case SHOOT_SOUTH: // row + 1
+            case SHOOT_WEST: // column - 1
+                if (isThereAMonster(choice)) {
                     String monster = killTheMonster();
                     //TODO geef de player 5 pijlen en maak een getter en setter daarvoor
                     //TODO zorg dat er een groep komt waar alle monsters onder vallen want waarschijnlijk komen er meer dan 1
@@ -155,6 +169,41 @@ public class Grid {
         }
     }
 
+    public boolean isThereAMonster(Choice choice) {
+        int shotRoomRow = player.getCurrentRow();
+        int shotRoomColumn = player.getCurrentColumn();
+
+        switch (choice) {
+            case SHOOT_NORTH:
+                shotRoomRow--;// row - 1
+            case SHOOT_EAST:
+                shotRoomColumn++;// column + 1
+            case SHOOT_SOUTH:
+                shotRoomRow++; // row + 1
+            case SHOOT_WEST:
+                shotRoomColumn--; // column - 1
+        }
+        for (Monster monster : monsters) {
+            if (monster.isMonsterAtRoom(shotRoomRow, shotRoomColumn, rooms)) {
+                if (monster instanceof Maelstrom) {
+                    Monster.name = "maelstrom";
+                } else {
+                    Monster.name = "amarok";
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String killTheMonster() {
+        if (Monster.name.equals("amarok")) {
+            rooms[Amarok.shotAmarokRow][Amarok.getShotAmarokColumn()] = "empty";
+        } else if (Monster.name.equals("maelstrom")) {
+            maelstroms.remove(0);
+        }
+        return Monster.name;
+    }
 
     public String getRoomCoordinates() {
         return "\nYou are in room: [" + player.getCurrentRow() + "]" + "[" + player.getCurrentColumn() + "]\n";

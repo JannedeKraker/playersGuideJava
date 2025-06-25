@@ -103,70 +103,71 @@ public class Grid {
             case EXIT:
                 if (getRoomContents().equals("entrance") && inGrid) {
                     Rooms.finished = true;
-                    return "You feel the sun is shining, your eyes have to get used to the bright light";
+                    return "You feel the sun is shining, your eyes have to get used to the bright light.\n";
                 } else if (inGrid) {
-                    return "you have to go to the entrance if you want to exit the grid.";
+                    return "you have to go to the entrance if you want to exit the grid.\n";
                 } else {
-                    return "You have to be in the grid if you want to exit the grid.";
+                    return "You have to be in the grid if you want to exit the grid.\n";
                 }
             case HELP:
                 return Menu.helpMenu();
             case FOUNTAIN_ON:
                 if (inGrid && getRoomContents().equals("fountain")) {
                     fountain.setFountainState(true);
-                    return "You hear water falling. you feel splashes on your cheek.";
-                } else return "You are not in the room with the fountain";
+                    return "You hear water falling. you feel splashes on your cheek.\n";
+                } else return "You are not in the room with the fountain\n";
             case FOUNTAIN_OFF:
                 if (inGrid && getRoomContents().equals("fountain")) {
                     fountain.setFountainState(false);
-                    return "You hear a dripping sound.";
-                } else return "You are not in the room with the fountain";
+                    return "You hear a dripping sound.\n";
+                } else return "You are not in the room with the fountain\n";
             case NORTH:
                 if (inGrid) {
                     if (startRow == player.getCurrentRow()) {
-                        return "If you go north, you leave the cavern, you can only leave the cavern by using the word exit.";
+                        return "If you go north, you leave the cavern, you can only leave the cavern by using the word exit.\n";
                     } else player.setCurrentRow(-1);
                     return getRoomCoordinates() + player.showAmountOffArrows() + experienceRoom();
-                } else return "You are not in the grid, you have to type start if you want to be in the grid.";
+                } else return "You are not in the grid, you have to type start if you want to be in the grid.\n";
             case EAST:
                 if (inGrid) {
                     if (player.getCurrentColumn() != rooms.length - 1) {
                         player.setCurrentColumn(+1);
                         return getRoomCoordinates() + player.showAmountOffArrows() + experienceRoom();
-                    } else return "If you go east, you clash to the wall, there is no door to another room";
-                } else return "You are not in the grid, you have to type start if you want to be in the grid.";
+                    } else return "If you go east, you clash to the wall, there is no door to another room.\n";
+                } else return "You are not in the grid, you have to type start if you want to be in the grid.\n";
             case SOUTH:
                 if (inGrid) {
                     if (player.getCurrentRow() != rooms[0].length - 1) {
                         player.setCurrentRow(+1);
                         return getRoomCoordinates() + player.showAmountOffArrows() + experienceRoom();
-                    } else return "If you go south, you clash to the wall, there is no door to another room";
-                } else return "You are not in the grid, you have to type start if you want to be in the grid.";
+                    } else return "If you go south, you clash to the wall, there is no door to another room.\n";
+                } else return "You are not in the grid, you have to type start if you want to be in the grid.\n";
             case WEST:
                 if (inGrid) {
                     if (startColumn == player.getCurrentColumn()) {
-                        System.out.println(" if you go west, you leave the cavern, you can only leave the cavern by using the word exit.");
+                        System.out.println("If you go west, you leave the cavern, you can only leave the cavern by using the word exit.\n");
                     } else {
                         player.setCurrentColumn(-1);
                         return getRoomCoordinates() + player.showAmountOffArrows() + experienceRoom();
                     }
-                } else return "You are not in the grid, you have to type start if you want to be in the grid.";
+                } else return "You are not in the grid, you have to type start if you want to be in the grid.\n";
             case SHOOT_NORTH: // row - 1
             case SHOOT_EAST: // column + 1
             case SHOOT_SOUTH: // row + 1
             case SHOOT_WEST: // column - 1
                 if (player.areThereArrows()) {
                     if (isThereAMonster(choice)) {
-                        String monster = killTheMonster();
+                        String killedMonster = killTheMonster();
+                        Monster.name = "";
                         player.setArrows(-1);
-                        return "You have killed " + monster + ".\n" + player.showAmountOffArrows();
+                        return "You have killed " + killedMonster + ".\n" + player.showAmountOffArrows();
                     } else {
                         player.setArrows(-1);
                         return "Your arrow hits the wall. There is no monster in that room.\n" + player.showAmountOffArrows();
                     }
-                } else return "You can't shoot anymore. You're out of arrows.";
+                } else return "You can't shoot anymore. You're out of arrows.\n";
             default:
-                return "I don't understand your answer. ";
+                return "I don't understand your answer.\n";
 
         }
     }
@@ -225,38 +226,38 @@ public class Grid {
         String experience;
         switch (getRoomContents()) {
             case "empty":
-                experience = "It is very quiet and dark here.";
+                experience = "It is very quiet and dark here.\n";
                 break;
             case "entrance":
                 if (fountain.getFountainState()) {
-                    experience = "You won!! The fountain of Objects has been put back into use.";
+                    experience = "You won!! The fountain of Objects has been put back into use.\n";
                     break;
                 } else {
-                    experience = "Light shines in from outside. You are at the entrance.";
+                    experience = "Light shines in from outside. You are at the entrance.\n";
                     break;
                 }
             case "fountain":
                 if (fountain.getFountainState()) {
-                    experience = "You feel splashes on your cheek. You hear the rushing waters from the Fountain of Objects. It has been reactivated!";
+                    experience = "You feel splashes on your cheek.\nYou hear the rushing waters from the Fountain of Objects.\nIt has been reactivated!";
                     break;
                 } else {
-                    experience = "You hear a dripping sound";
+                    experience = "You hear a dripping sound\n";
                     break;
                 }
             case "pit":
                 Rooms.finished = true;
-                return "oh no! You fell into a very deep pit. You can't continue your mission to turn on the fountain. When you are better, will you come and continue your mission?!";
+                return "oh no! You fell into a very deep pit.\nYou can't continue your mission to turn on the fountain.\nWhen you are better, will you come and continue your mission?!";
             case "amarok":
                 Rooms.finished = true;
-                return "Aaaah!! you are looking into the mouth of an amarok. A giant, rotting, wolf-like creature. Sadly, this is the last thing you see in your life. You are dead.";
+                return "Aaaah!! you are looking into the mouth of an amarok.\nA giant, rotting, wolf-like creature.\nSadly, this is the last thing you see in your life.\nYou are dead.";
             default:
-                return "we are lost";
+                return "we are lost\n";
         }
         if (isCloseTo("pit")) {
-            experience += "\nYou feel a draft. There is a pit in a nearby room.";
+            experience += "You feel a draft. There is a pit in a nearby room.\n";
         }
         if (isCloseTo("amarok")) {
-            experience += "\nYou can smell the rotten stench of an amarok in a nearby room.";
+            experience += "You can smell the rotten stench of an amarok in a nearby room.\n";
         }
         experience = getExperienceWithMaelstrom(experience);
 
@@ -270,11 +271,11 @@ public class Grid {
             if (maelstrom.isAtRoomWithMaelstrom(player.getCurrentRow(), player.getCurrentColumn())) {
                 player.move();
                 maelstrom.move();
-                experience += "\nWaah, you get blown away by a maelstrom to another room.";
+                experience += "Waah, you get blown away by a maelstrom to another room.\n";
                 // of de speler nog wel in de grid geplaatst is. zo niet de speler opnieuw ergens willekeurig in de grid plaatsen.
                 if (!isInGrid(player)) {
                     player.setInGrid(gridSize);
-                    experience += "\nOops, you hit the outer walls of the grid and bounce into another room.";
+                    experience += "Oops, you hit the outer walls of the grid and bounce into another room.\n";
                     experience += getRoomCoordinates() + experienceRoom();
                 } else {
                     experience += getRoomCoordinates() + experienceRoom();
@@ -285,7 +286,7 @@ public class Grid {
                 }
 
             } else if (maelstrom.hearingMaelstrom(player.getCurrentRow(), player.getCurrentColumn(), rooms)) {
-                experience += "\nYou hear the growling and groaning of a maelstrom nearby. Be careful not to get blown away. ";
+                experience += "You hear the growling and groaning of a maelstrom nearby.\nBe careful not to get blown away.\n";
             }
         }
         return experience;

@@ -10,12 +10,12 @@ public class Menu {
         boolean isNotGoodAnswer = true;
 
         while (isNotGoodAnswer) {
-            System.out.println("How big do you want the grid of rooms to be? (small, medium or large)");
+            System.out.print("\nHow big do you want the maze of rooms to be? (small, medium or large)\n");
             size = keyboard.nextLine().toLowerCase().trim();
             if (size.equals("small") || size.equals("medium") || size.equals("large")) {
                 isNotGoodAnswer = false;
             } else {
-                System.out.println("I don't understand what you want.");
+                System.out.print("I don't understand what you want.\n");
             }
         }
         return size;
@@ -23,7 +23,7 @@ public class Menu {
 
     public static Choice getAction() {
 
-        System.out.println("What do you want to do?");
+        System.out.print("\nWhat do you want to do?\n");
         String choice = keyboard.nextLine().toLowerCase().trim();
         return switch (choice) {
             case "start" -> Choice.START;
@@ -44,27 +44,41 @@ public class Menu {
     }
 
     public static void show(String string) {
-        System.out.println(string);
+        System.out.print(string);
     }
 
     public static String startMenu() {
         String green = "\u001B[32m";
         String normalColor = "\u001B[0m";
-        return ("Welcome at the Fountain of Objects game.\n" +
-                "You can search in the grid of rooms for the fountain of Objects.\n" +
-                "Pay close attention because it is very dark.\n" +
-                "If you have found the Fountain of Objects you must activate it to win.\n" +
-                "Once you have done that you must return to the entrance.\n" +
-                "If you succeed, you have won the game.\n" +
-                "The commands to move are:" + green + " north, east, south, west" + normalColor + ".\n" +
-                "You can exit the entrance by typing:" + green + " exit" + normalColor + ".\n" +
-                "To activate the fountain, type:" + green + " fountain on" + normalColor + ".\nTo deactivate it, type:" + green + " fountain off" + normalColor + ".\n" +
-                "You have a bow and five arrows, you can shoot arrows into rooms around you with these commands:" + green + " shoot north, shoot east, shoot south, shoot west" + normalColor + ".\n" +
-                "If a monster is in that room, it is killed" + ".\n" +
-                "If you want to start type:" + green + " start" + normalColor + ".\n");
+        return (
+                "You enter the Cavern of Objects, a maze of rooms filled with dangerous pits in search\n" +
+                        "of the Fountain of Objects.\n" +
+                        "Light is visible only in the entrance, and no other light is seen anywhere in the caverns.\n" +
+                        "You must navigate the Caverns with your other senses.\n" +
+                        "Find the Fountain of Objects, activate it, and return to the entrance.\n" +
+                        "Look out for pits. You will feel a breeze if a pit is in an adjacent room. \n" +
+                        "If you enter a room with a pit, you will die.\n" +
+                        "Maelstroms ar violent forces of sentient wind.\n" +
+                        "Entering a room with one could transport you to any other location in the caverns.\n" +
+                        "You will be able to hear their growling and groaning in nearby rooms.\n" +
+                        "Amaroks roam the caverns. Encountering one is certain death,\n" +
+                        "but you can smell their rotten stench in nearby rooms.\n" +
+                        "You carry with you a bow and a quiver of arrows.\n" +
+                        "You can use them to shoot Maelstroms and Amaroks in the caverns but be warned:\n" +
+                        "you have a limited supply.\n" + helpMenu());
+
 
     }
-    public static String helpMenu(){
-        return "test String help menu";
+
+    public static String helpMenu() {
+        String green = "\u001B[32m";
+        String normalColor = "\u001B[0m";
+        return          "\nThe commands to move are:" + green + " north, east, south, west" + normalColor + ".\n" +
+                        "You can exit the entrance by typing:" + green + " exit" + normalColor + ".\n" +
+                        "To activate the fountain, type:" + green + " fountain on" + normalColor + ".\nTo deactivate it, type:" + green + " fountain off" + normalColor + ".\n" +
+                        "You have a bow and five arrows, you can shoot arrows into rooms around you with these commands:" + green + " shoot north, shoot east, shoot south, shoot west" + normalColor + ".\n" +
+                        "If a monster is in that room, it is killed" + ".\n" +
+                        "If ypu want to see the commands again type:" + green + " help" + normalColor + ".\n" +
+                        "If you want to start type:" + green + " start" + normalColor + ".\n";
     }
 }

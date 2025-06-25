@@ -44,16 +44,20 @@ public class Player implements Movable {
         this.currentRow += currentRow;
     }
 
-
+    public String showAmountOffArrows() {
+        return "Arrows: [" + this.arrows + "]\n";
+    }
 
 
     public int getArrows() {
         return arrows;
     }
+
     public void setArrows(int arrows) {
         this.arrows += arrows;
     }
-    public boolean areThereArrows(){
+
+    public boolean areThereArrows() {
         return arrows >= 1;
     }
 }

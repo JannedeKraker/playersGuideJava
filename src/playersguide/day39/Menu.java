@@ -28,6 +28,7 @@ public class Menu {
         return switch (choice) {
             case "start" -> Choice.START;
             case "exit" -> Choice.EXIT;
+            case "help" -> Choice.HELP;
             case "fountain on" -> Choice.FOUNTAIN_ON;
             case "fountain off" -> Choice.FOUNTAIN_OFF;
             case "north" -> Choice.NORTH;
@@ -46,10 +47,10 @@ public class Menu {
         System.out.println(string);
     }
 
-    public static void showStartMenu() {
+    public static String startMenu() {
         String green = "\u001B[32m";
         String normalColor = "\u001B[0m";
-        System.out.println("Welcome at the Fountain of Objects game.\n" +
+        return ("Welcome at the Fountain of Objects game.\n" +
                 "You can search in the grid of rooms for the fountain of Objects.\n" +
                 "Pay close attention because it is very dark.\n" +
                 "If you have found the Fountain of Objects you must activate it to win.\n" +
@@ -62,5 +63,8 @@ public class Menu {
                 "If a monster is in that room, it is killed" + ".\n" +
                 "If you want to start type:" + green + " start" + normalColor + ".\n");
 
+    }
+    public static String helpMenu(){
+        return "test String help menu";
     }
 }

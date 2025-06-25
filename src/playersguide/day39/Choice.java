@@ -16,4 +16,5 @@ public enum Choice { // Keuzes die de de speler kan maken.
     SHOOT_SOUTH,
 
     SHOOT_WEST,
+    HELP,
 }

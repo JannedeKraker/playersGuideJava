@@ -109,6 +109,8 @@ public class Grid {
                 } else {
                     return "You have to be in the grid if you want to exit the grid.";
                 }
+            case HELP:
+                return Menu.helpMenu();
             case FOUNTAIN_ON:
                 if (inGrid && getRoomContents().equals("fountain")) {
                     fountain.setFountainState(true);

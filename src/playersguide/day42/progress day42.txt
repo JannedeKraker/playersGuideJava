@@ -12,4 +12,4 @@ shoot east, shoot south, and shoot west.When the player shoots in one of the fou
 is fired into the room in that direction. If a monster is in that room, it is killed and should not affect
 the game anymore. They can no longer sense it, and it should not affect the player. -- done
 - The player only has five arrows and cannot shoot when they are out of arrows. Display the number
-of arrows the player has when displaying the game’s status before asking for their action.
+of arrows the player has when displaying the game’s status before asking for their action. -- done

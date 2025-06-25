@@ -7,7 +7,7 @@ public class Main {
 
 
         Grid grid = new Grid(Menu.getSize()); // hier bepaalt de speler de grootte van de grid
-        Menu.showStartMenu(); // hier word een keer het start menu laten zien met alle commando's
+        Menu.show(Menu.startMenu());; // hier word een keer het start menu laten zien met alle commando's
 
         do {
             Choice choice = Menu.getAction(); // hier wordt gevraagt aan de speler welke actie hij wil uitvoeren

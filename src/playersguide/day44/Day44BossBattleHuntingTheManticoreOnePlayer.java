@@ -1,14 +1,16 @@
-package playersguide.day18;
+package playersguide.day44;
 
+import playersguide.day18.Day18BossBattleHuntingTheManticoreTwoPlayer;
+
+import java.util.Random;
 import java.util.Scanner;
 
-import static playersguide.day12.Day12ThePrototype.*;
-import static playersguide.day16.Day16TakingANumber.*;
+import static playersguide.day12.Day12ThePrototype.emptyScreen;
+import static playersguide.day16.Day16TakingANumber.askForNumberInRange;
 
 
+public class Day44BossBattleHuntingTheManticoreOnePlayer {
 
-
-public class Day18BossBattleHuntingTheManticore {
 
     public static void main(String[] args) {
         Scanner keyboard = new Scanner(System.in);
@@ -20,13 +22,13 @@ public class Day18BossBattleHuntingTheManticore {
         int cityHealth = 15;
         int round = 1;
         int shot = 1;
-        int manticoreDistance = askForNumberInRange("Player 1, choose the Manticore’s distance from the city: ", 0, 100);
+        int manticoreDistance = new Random().nextInt(101);
 
         emptyScreen();
         beginMenu(round, manticoreHealth, cityHealth, shot);
 
         while (manticoreHealth > 0 && cityHealth > 0) {
-            System.out.println("player 2, guess the distance to the manticore:");
+            System.out.println("Guess the distance to the manticore:");
             int guessNumber = keyboard.nextInt();
 
             if (manticoreDistance > guessNumber) {
@@ -97,5 +99,7 @@ public class Day18BossBattleHuntingTheManticore {
         System.out.println("| The cannon is expected to deal " + damagePoints + " damage this round.     | " + destroyed);
         System.out.println("-----------------------------------------------------------\n");
     }
+
+
 }
 

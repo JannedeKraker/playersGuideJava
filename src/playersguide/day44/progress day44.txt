@@ -1,0 +1,15 @@
+
+- Modify your Hunting the Manticore game to be a single-player game by having the computer pick a
+random range between 0 and 100 (you can use the `Random` class for that). --done
+- Answer this question: How might you use inheritance, polymorphism, or interfaces to allow the
+game to be either a single player (the computer randomly chooses the starting location and
+direction) or two players (the second human determines the starting location and direction)?
+
+- ik kom hier nog niet uit....
+
+
+Modify your Fountain of Objects game to display how much time a
+player spent exploring the caverns.
+- When a new game begins, capture the current time using LocalDateTime.
+- When a game finishes (win or loss), capture the current time.
+- Use Duration to compute how much time elapsed and display that to the player.

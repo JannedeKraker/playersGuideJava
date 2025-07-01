@@ -155,17 +155,22 @@ public class Grid {
             case SHOOT_EAST: // column + 1
             case SHOOT_SOUTH: // row + 1
             case SHOOT_WEST: // column - 1
-                if (player.areThereArrows()) {
-                    if (isThereAMonster(choice)) {
-                        String killedMonster = killTheMonster();
-                        Monster.name = "";
-                        player.setArrows(-1);
-                        return "You have killed " + killedMonster + ".\n" + player.showAmountOffArrows();
-                    } else {
-                        player.setArrows(-1);
-                        return "Your arrow hits the wall. There is no monster in that room.\n" + player.showAmountOffArrows();
-                    }
-                } else return "You can't shoot anymore. You're out of arrows.\n";
+                try {
+                    if (player.areThereArrows()) {
+                        if (isThereAMonster(choice)) {
+                            String killedMonster = killTheMonster();
+                            Monster.name = "";
+                            player.setArrows(-1);
+                            return "You have killed " + killedMonster + ".\n" + player.showAmountOffArrows();
+                        } else {
+                            player.setArrows(-1);
+                            return "Your arrow hits the wall. There is no monster in that room.\n" + player.showAmountOffArrows();
+                        }
+                    } else return "You can't shoot anymore. You're out of arrows.\n";
+                } catch (IndexOutOfBoundsException e) {
+                    player.setArrows(-1);
+                    return "Your arrow won't go far because there's no other room there.\n";
+                }
             default:
                 return "I don't understand your answer.\n";
 

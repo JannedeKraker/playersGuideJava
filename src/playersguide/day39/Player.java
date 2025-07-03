@@ -1,5 +1,8 @@
 package playersguide.day39;
 
+import java.time.Duration;
+import java.time.LocalTime;
+import java.time.temporal.TemporalUnit;
 import java.util.Random;
 
 public class Player implements Movable {
@@ -7,6 +10,30 @@ public class Player implements Movable {
     private int arrows = 5;
     private int currentRow;
     private int currentColumn;
+    LocalTime startTime;
+    LocalTime endTime;
+    Duration duration;
+
+    public void setStartTime() {
+        this.startTime = LocalTime.now();
+    }
+
+    public void setEndTime() {
+        this.endTime = LocalTime.now();
+        setDuration();
+    }
+
+    public String getDuration() {
+        long hours = duration.toHours();
+        long minutes = duration.toMinutes() % 60;
+        long seconds = duration.getSeconds() % 60;
+
+        return hours + " Hours, " + minutes + " Minutes, " + seconds + " Seconds.";
+    }
+
+    public void setDuration() {
+        this.duration = Duration.between(startTime, endTime);
+    }
 
     public void setInGrid(String sizeGrid) {
         Random random = new Random();

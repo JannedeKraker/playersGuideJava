@@ -1,0 +1,45 @@
+## Narrative 6: The Fountain Remade
+You scramble through the dark Cavern of Objects, crawling and feeling your way to the Fountain of
+Objects. The dripping sound that you hear is a giveaway that you have found it. You pull Simula’s green
+gem—the Heart of Object-Oriented Programming—out of your pack and hold it in the palm of your
+hand, contemplating the journey you have taken to get here.You slide your hand along the Fountain until
+you find a small recess, just big enough for the Heart to be placed. You slide the green gem in, and the
+fountain immediately comes to life. The water in the fountain, previously still, suddenly begins churning
+and overflowing onto the ground around you. You make a hasty escape to the cavern entrance.
+Within minutes, water rushes out the entrance and through a thousand other holes in the mountainside,
+collecting into a raging waterfall down into the valley below. Within days, the newly restored River of
+Objects will flow to the sea, restoring its life-giving power to the entire island.
+With the River of Objects flowing again, the land will become bountiful with objects of every class,
+interface, and struct imaginable. The island has been saved. You turn your attention towards the
+scattered islands on the horizon and your final destination beyond: a confrontation with The Uncoded
+One.
+
+## Narrative 7: The Harvest of Objects
+A few days have passed since the Fountain of Objects was restored, but the land has already become
+more vibrant and lush. New objects and classes, unseen for thousands of clock cycles, have been found
+again. The classes described in this level represent a collection of some of the most versatile and
+interesting ones you have seen, and you gather some up for the rest of your journey.
+
+## Day 44 Challenge 1/2: The Robot Pilot
+When we first made the Hunting the Manticore game in day 18, we required two human players: one to
+set up the Manticore’s range from the city and the other to destroy it. With Random, we can turn this
+into a single-player game by randomly picking the range for the Manticore.
+
+**Objectives**:
+
+- Modify your Hunting the Manticore game to be a single-player game by having the computer pick a
+random range between 0 and 100 (you can use the `Random` class for that).
+- Answer this question: How might you use inheritance, polymorphism, or interfaces to allow the
+game to be either a single player (the computer randomly chooses the starting location and
+direction) or two players (the second human determines the starting location and direction)?
+
+## Day 44 Challenge 2/2: Time in the Cavern
+With LocalDateTime and Duration, you can track how much time a player spends in the Cavern of Objects
+to beat the game. With these tools, modify your Fountain of Objects game to display how much time a
+player spent exploring the caverns.
+
+**Objectives**:
+
+- When a new game begins, capture the current time using LocalDateTime.
+- When a game finishes (win or loss), capture the current time.
+- Use Duration to compute how much time elapsed and display that to the player.
